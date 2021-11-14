@@ -61,7 +61,7 @@ jobs:
       - name: Semantic Release runs for draft release
         if: ${{github.event.inputs.draft-release == 'true'}}
         id: semantic-release
-        run: echo "${{ needs.draft-release.outputs.tag-name }}"
+        run: echo "${{ steps.semantic-release.outputs.TAG_NAME }}"
         env:
           GITHUB_TOKEN: ${{ secrets.REPO_ACCESS_TOKEN }}
           NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
@@ -71,8 +71,11 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.REPO_ACCESS_TOKEN }}
           NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
+      - name: Extract branch name
+        id: extract_branch
+        run: echo "##[set-output name=branch;]$(echo ${GITHUB_REF#refs/heads/})"
       - name: Run sanity testing for on release-draft
-        if: ${{needs.draft-release.outputs.tag-name != '' && github.event.inputs.draft-release == 'true' }}
+        if: ${{ github.event.inputs.draft-release == 'true' }}
         run: node .github/scripts/trigger-workflow.js
         env:
           WORKFLOW_NAME: 'cli-test-npm.yml'
@@ -109,9 +112,8 @@ jobs:
            ref: ${{ steps.extract_branch.outputs.branch }}
            fetch-depth: 0 
       - name: Undo Push
-        uses: exions/undo-push@v1
-        with:
-          branch: ${{ steps.extract_branch.outputs.branch }}
+        run: |
+          bash .github/scripts/revert-commit-draft-release.sh
   oclif-release:
     if: ${{github.event.inputs.draft-release != 'true'}}
     runs-on: ubuntu-latest
