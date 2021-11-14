@@ -1,4 +1,4 @@
-name: Cli Release
+name: Test Cli Release
 on:
   workflow_dispatch:
     inputs:
@@ -61,7 +61,7 @@ jobs:
       - name: Semantic Release runs for draft release
         if: ${{github.event.inputs.draft-release == 'true'}}
         id: semantic-release
-        run: echo "HELLO"
+        run: echo "${{ needs.draft-release.outputs.tag-name }}"
         env:
           GITHUB_TOKEN: ${{ secrets.REPO_ACCESS_TOKEN }}
           NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
@@ -72,14 +72,14 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.REPO_ACCESS_TOKEN }}
           NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
       - name: Run sanity testing for on release-draft
-        if: ${{needs.release.outputs.tag-name != '' && github.event.inputs.draft-release == 'true' }}
+        if: ${{needs.draft-release.outputs.tag-name != '' && github.event.inputs.draft-release == 'true' }}
         run: node .github/scripts/trigger-workflow.js
         env:
           WORKFLOW_NAME: 'cli-test-npm.yml'
           REPO_NAME: twilio/twilio-cli
           REPO_ACCESS_TOKEN: ${{ secrets.REPO_ACCESS_TOKEN }}
           BRANCH_NAME: ${{steps.extract_branch.outputs.branch}}
-          INPUTS: '{ "version": "${{needs.release.outputs.tag-name}}"}'
+          INPUTS: '{ "version": "${{needs.draft-release.outputs.tag-name}}"}'
       - name: Update release
         if: ${{steps.semantic-release.outputs.TAG_NAME != ''}}
         run: node .github/scripts/update-release.js
@@ -148,7 +148,7 @@ jobs:
         id: extract_branch
         run: echo "##[set-output name=branch;]$(echo ${GITHUB_REF#refs/heads/})"
       - name: Invoke Docker workflow
-        if: ${{needs.release.outputs.tag-name != ''}}
+        if: ${{needs.draft-release.outputs.tag-name != ''}}
         run: node .github/scripts/trigger-workflow.js
         env:
           WORKFLOW_NAME: 'docker-release.yml'
@@ -169,7 +169,7 @@ jobs:
         id: extract_branch
         run: echo "##[set-output name=branch;]$(echo ${GITHUB_REF#refs/heads/})"
       - name: Invoke Platform Executables workflow
-        if: ${{needs.release.outputs.tag-name != ''}}
+        if: ${{needs.draft-release.outputs.tag-name != ''}}
         run: node .github/scripts/trigger-workflow.js
         env:
           WORKFLOW_NAME: 'platform-executables.yml'
