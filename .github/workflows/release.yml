@@ -1,4 +1,4 @@
-name: Test Cli Release
+name: Test Cli Release Shruti
 on:
   workflow_dispatch:
     inputs:
