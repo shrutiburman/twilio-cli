@@ -3,7 +3,7 @@ echo "Running revert last commit script"
 prevCommit=$(git rev-parse --verify HEAD)
 echo prevCommit
 cd "${GITHUB_WORKSPACE}"
-echo "Dummy change to see revert"
+echo "Dummy change to see revert +"
 git branch ${GITHUB_REF}
 echo "Git configurations"
 git config --global user.email "team_interfaces+github@twilio.com"
