@@ -60,7 +60,6 @@ jobs:
           npm install
       - name: Semantic Release runs for draft release
         if: ${{github.event.inputs.draft-release == 'true'}}
-        id: semantic-release
         run: echo " ${version} "
         env:
           GITHUB_TOKEN: ${{ secrets.REPO_ACCESS_TOKEN }}
