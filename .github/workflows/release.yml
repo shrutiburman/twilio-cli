@@ -61,12 +61,13 @@ jobs:
       - name: Semantic Release runs for draft release
         if: ${{github.event.inputs.draft-release == 'true'}}
         id: semantic-release
-        run: echo "${{ steps.semantic-release.outputs.TAG_NAME }}"
+        run: echo " ${version} "
         env:
           GITHUB_TOKEN: ${{ secrets.REPO_ACCESS_TOKEN }}
           NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
       - name: Semantic Release runs
         if: ${{github.event.inputs.draft-release != 'true'}}
+        id: semantic-release
         run: npx semantic-release -t \${version}
         env:
           GITHUB_TOKEN: ${{ secrets.REPO_ACCESS_TOKEN }}
@@ -82,7 +83,7 @@ jobs:
           REPO_NAME: shrutiburman/twilio-cli
           REPO_ACCESS_TOKEN: ${{ secrets.REPO_ACCESS_TOKEN }}
           BRANCH_NAME: ${{steps.extract_branch.outputs.branch}}
-          INPUTS: '{ "version": "\${version}" }'
+          INPUTS: '{ "version": "2.32.0" }'
       - name: Update release
         if: ${{steps.semantic-release.outputs.TAG_NAME != ''}}
         run: node .github/scripts/update-release.js
