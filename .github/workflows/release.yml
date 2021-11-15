@@ -82,7 +82,7 @@ jobs:
           REPO_NAME: shrutiburman/twilio-cli
           REPO_ACCESS_TOKEN: ${{ secrets.REPO_ACCESS_TOKEN }}
           BRANCH_NAME: ${{steps.extract_branch.outputs.branch}}
-          INPUTS: '{ "version": "${{github.event.inputs.homebrew-branch}} }'
+          INPUTS: '{ "version": "\${version}" }'
       - name: Update release
         if: ${{steps.semantic-release.outputs.TAG_NAME != ''}}
         run: node .github/scripts/update-release.js
