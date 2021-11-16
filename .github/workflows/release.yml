@@ -14,7 +14,7 @@ on:
         default: 'false'
       draft-release:
         description: 'Draft release'
-        default: 'false'
+        default: 'true'
 
 jobs:
   test:
@@ -113,9 +113,8 @@ jobs:
            fetch-depth: 0 
       - name: Undo Push
         run: |
-          bash .github/scripts/revert-commit-draft-release.sh      
+          bash .github/scripts/revert-commit-draft-release.sh "${{ steps.extract_branch.outputs.branch }}"   
   oclif-release:
-    if: ${{github.event.inputs.draft-release != 'true'}}
     runs-on: ubuntu-latest
     needs: [draft-release]
     steps:
