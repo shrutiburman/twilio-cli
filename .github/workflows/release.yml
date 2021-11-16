@@ -48,7 +48,7 @@ jobs:
     runs-on: ubuntu-latest
     needs: [update-api-definitions-changelog]
     outputs:
-      tag-name: ${{ steps.semantic-release.outputs.TAG_NAME }}
+      tag-name: \${version}-draft #${{ steps.semantic-release.outputs.TAG_NAME }}
     steps:
       - name: Checkout cli
         uses: actions/checkout@v2
