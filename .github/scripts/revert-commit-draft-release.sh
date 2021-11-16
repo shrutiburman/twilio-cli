@@ -1,12 +1,13 @@
 #!/bin/sh
 echo "Running revert last commit script"
-prevCommit=$(git rev-parse --verify HEAD)
-echo prevCommit
-cd "${GITHUB_WORKSPACE}"
-echo "Dummy change to see revert ++"
-git branch ${GITHUB_REF}
-echo "Git configurations"
+echo $1
+echo "$1"
+echo "Last commit to revert :"
+echo $(git rev-parse --verify HEAD)
+echo "Git configurations :"
 git config --global user.email "team_interfaces+github@twilio.com"
 git config --global user.name "twilio-dx"
-git reset --hard HEAD~1
-git push --force
+git revert $(git rev-parse --verify HEAD)
+git push origin refs/heads/main:refs/heads/main
+
+
