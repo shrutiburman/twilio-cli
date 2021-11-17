@@ -44,11 +44,11 @@ jobs:
       - name: Update Changelog
         run: |
           bash .github/scripts/commit-api-spec-change-log.sh "${{ github.event.inputs.change-log }}" ${{ github.event.inputs.version-type }}
-  draft-release:
+  release:
     runs-on: ubuntu-latest
     needs: [update-api-definitions-changelog]
     outputs:
-      tag-name: \${version}-draft #${{ steps.semantic-release.outputs.TAG_NAME }}
+      tag-name: '2.33.0' #${{ steps.semantic-release.outputs.TAG_NAME }}
     steps:
       - name: Checkout cli
         uses: actions/checkout@v2
@@ -94,7 +94,7 @@ jobs:
   delete-draft-release:
     if: ${{github.event.inputs.draft-release == 'true'}}
     runs-on: ubuntu-latest
-    needs: [draft-release]
+    needs: [release]
     steps:
       - name: Delete draft release
         uses: dev-drprasad/delete-tag-and-release@v0.2.0
@@ -116,7 +116,7 @@ jobs:
           bash .github/scripts/revert-commit-draft-release.sh "${{ steps.extract_branch.outputs.branch }}"   
   oclif-release:
     runs-on: ubuntu-latest
-    needs: [draft-release]
+    needs: [release]
     steps:
       - name: Checkout cli repo
         uses: actions/checkout@v2
@@ -127,27 +127,26 @@ jobs:
         id: extract_branch
         run: echo "##[set-output name=branch;]$(echo ${GITHUB_REF#refs/heads/})"
       - name: Invoke Oclif workflow
-        if: ${{needs.draft-release.outputs.tag-name != '' && github.event.inputs.draft-release != 'true'}}
+        if: ${{needs.release.outputs.tag-name != '' && github.event.inputs.draft-release != 'true'}}
         run: node .github/scripts/trigger-workflow.js
         env:
           WORKFLOW_NAME: 'oclif-release.yml'
           REPO_NAME: shrutiburman/twilio-cli
           REPO_ACCESS_TOKEN: ${{ secrets.REPO_ACCESS_TOKEN }}
           BRANCH_NAME: ${{steps.extract_branch.outputs.branch}}
-          INPUTS: '{ "home-brew-branch": "${{github.event.inputs.homebrew-branch}}", "tag-name": "${{needs.draft-release.outputs.tag-name}}", "pre-release": "${{github.event.inputs.homebrew-prerelease}}"}'
+          INPUTS: '{ "home-brew-branch": "${{github.event.inputs.homebrew-branch}}", "tag-name": "${{needs.release.outputs.tag-name}}", "pre-release": "${{github.event.inputs.homebrew-prerelease}}"}'
       - name: Invoke Oclif workflow for draft release
-        if: ${{needs.draft-release.outputs.tag-name != '' && github.event.inputs.draft-release == 'true'}}
+        if: ${{needs.release.outputs.tag-name != '' && github.event.inputs.draft-release == 'true'}}
         run: node .github/scripts/trigger-workflow.js
         env:
           WORKFLOW_NAME: 'oclif-release.yml'
           REPO_NAME: shrutiburman/twilio-cli
           REPO_ACCESS_TOKEN: ${{ secrets.REPO_ACCESS_TOKEN }}
           BRANCH_NAME: ${{steps.extract_branch.outputs.branch}}
-          INPUTS: '{ "home-brew-branch": "${{github.event.inputs.homebrew-branch}}", "tag-name": "${{needs.draft-release.outputs.tag-name}}-draft", "pre-release": "${{github.event.inputs.homebrew-prerelease}}"}'
+          INPUTS: '{ "home-brew-branch": "${{github.event.inputs.homebrew-branch}}", "tag-name": "${{needs.release.outputs.tag-name}}-draft", "pre-release": "${{github.event.inputs.homebrew-prerelease}}"}'
   docker-release:
-    if: ${{github.event.inputs.draft-release != 'true'}}
     runs-on: ubuntu-latest
-    needs: [ draft-release ]
+    needs: [ release ]
     steps:
       - name: Checkout cli repo
         uses: actions/checkout@v2
@@ -158,7 +157,7 @@ jobs:
         id: extract_branch
         run: echo "##[set-output name=branch;]$(echo ${GITHUB_REF#refs/heads/})"
       - name: Invoke Docker workflow
-        if: ${{needs.draft-release.outputs.tag-name != ''}}
+        if: ${{needs.release.outputs.tag-name != ''}}
         run: node .github/scripts/trigger-workflow.js
         env:
           WORKFLOW_NAME: 'docker-release.yml'
@@ -168,7 +167,7 @@ jobs:
   platform-executables-release:
     if: ${{github.event.inputs.draft-release != 'true'}}
     runs-on: ubuntu-latest
-    needs: [ draft-release ]
+    needs: [ release ]
     steps:
       - name: Checkout cli repo
         uses: actions/checkout@v2
@@ -179,7 +178,7 @@ jobs:
         id: extract_branch
         run: echo "##[set-output name=branch;]$(echo ${GITHUB_REF#refs/heads/})"
       - name: Invoke Platform Executables workflow
-        if: ${{needs.draft-release.outputs.tag-name != ''}}
+        if: ${{needs.release.outputs.tag-name != ''}}
         run: node .github/scripts/trigger-workflow.js
         env:
           WORKFLOW_NAME: 'platform-executables.yml'
@@ -188,7 +187,7 @@ jobs:
           BRANCH_NAME: ${{steps.extract_branch.outputs.branch}}
   notify-complete-fail:
     if: ${{ failure() || cancelled() }}
-    needs: [ draft-release, oclif-release, platform-executables-release ]
+    needs: [ release, oclif-release, platform-executables-release ]
     name: Notify Release Failed
     runs-on: ubuntu-latest
     steps:
