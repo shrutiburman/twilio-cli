@@ -1,3 +1,10 @@
+## [2.34.0-draft.3](https://github.com/shrutiburman/twilio-cli/compare/2.34.0-draft.2...2.34.0-draft.3) (2021-11-17)
+
+
+### Library - Chores
+
+* Updated tag name ([dbe0bb5](https://github.com/shrutiburman/twilio-cli/commit/dbe0bb591a9ad16d43c23213a68bf3eb70489a69))
+
 ## [2.34.0-draft.2](https://github.com/shrutiburman/twilio-cli/compare/2.34.0-draft.1...2.34.0-draft.2) (2021-11-17)
 
 
