@@ -1,3 +1,10 @@
+## [2.34.0-draft.2](https://github.com/shrutiburman/twilio-cli/compare/2.34.0-draft.1...2.34.0-draft.2) (2021-11-17)
+
+
+### Library - Chores
+
+* changes for fixing delete tag ([680bb3b](https://github.com/shrutiburman/twilio-cli/commit/680bb3b6eb6c7585ddc3f18d2747f031bfe2047a))
+
 ## [2.33.0](https://github.com/twilio/twilio-cli/compare/2.32.1...2.33.0) (2021-11-04)
 
 
