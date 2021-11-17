@@ -1,3 +1,24 @@
+## [2.34.0-draft.1](https://github.com/shrutiburman/twilio-cli/compare/2.33.0...2.34.0-draft.1) (2021-11-17)
+
+
+### Library - Fixes
+
+* Added changes for lcov ([#319](https://github.com/shrutiburman/twilio-cli/issues/319)) ([43cc6ad](https://github.com/shrutiburman/twilio-cli/commit/43cc6adefea72c08f63bea1574fab35ffa6ded54))
+* changed the repo name ([c6e1f86](https://github.com/shrutiburman/twilio-cli/commit/c6e1f863d8fe68f7f7cb0020a449977d518e4949))
+* commented auto trigger ([44b4e09](https://github.com/shrutiburman/twilio-cli/commit/44b4e09b2a493cef7c17e73bd1170ebcdd7dc670))
+* Disable hyperlinks in Ubuntu ([#329](https://github.com/shrutiburman/twilio-cli/issues/329)) ([14f7cb3](https://github.com/shrutiburman/twilio-cli/commit/14f7cb3560a02091550d5f26c86bfd19ca8a1607))
+* reverting changes for the RPM build ([#326](https://github.com/shrutiburman/twilio-cli/issues/326)) ([c9eaad8](https://github.com/shrutiburman/twilio-cli/commit/c9eaad8e9cbdf0d36e5d7662daee55dfa4608f1d))
+
+
+### Library - Features
+
+* added a new dummy branch ([0e880d6](https://github.com/shrutiburman/twilio-cli/commit/0e880d64d27567349b5cab8fec3122afa0017359))
+
+
+### Library - Chores
+
+* Added tag in draft ([9089d3b](https://github.com/shrutiburman/twilio-cli/commit/9089d3bd3a9b18269338f771f83b950ac03cd0de))
+
 ## [2.33.0](https://github.com/twilio/twilio-cli/compare/2.32.1...2.33.0) (2021-11-04)
 
 
