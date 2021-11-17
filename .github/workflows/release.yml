@@ -145,7 +145,6 @@ jobs:
           BRANCH_NAME: ${{steps.extract_branch.outputs.branch}}
           INPUTS: '{ "home-brew-branch": "${{github.event.inputs.homebrew-branch}}", "tag-name": "${{needs.release.outputs.tag-name}}-draft", "pre-release": "${{github.event.inputs.homebrew-prerelease}}"}'
   docker-release:
-    if: ${{github.event.inputs.draft-release != 'true'}}
     runs-on: ubuntu-latest
     needs: [ release ]
     steps:
