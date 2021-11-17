@@ -1,5 +1,6 @@
 name: Local npm registry
-on: push
+on:
+  workflow_dispatch:
 
 jobs:
   job-name:
