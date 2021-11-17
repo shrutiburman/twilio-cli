@@ -3,8 +3,8 @@ const { expect, test } = require('@twilio/cli-test');
 const { Config, ConfigData } = require('@twilio/cli-core').services.config;
 
 const { fakeResource, fakeCallResponse } = require('./twilio-api-command.fixtures');
-const TwilioApiCommand = require('../../src/base-commands/twilio-api-command');
-const { getTopicName } = require('../../src/services/twilio-api');
+const TwilioApiCommand = require('../base-commands/twilio-api-command');
+const { getTopicName } = require('../services/twilio-api');
 
 const NUMBER_OF_BASE_COMMAND_FLAGS = 6;
 const NUMBER_OF_PARAMS_FOR_CALL_CREATE = fakeResource.actions.create.parameters.length;
