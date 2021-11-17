@@ -49,6 +49,7 @@ jobs:
     needs: [update-api-definitions-changelog]
     outputs:
       tag-name: ${{ steps.semantic-release.outputs.TAG_NAME }}
+      version: ${{ steps.semantic-release-draft.outputs.VERSION }}
     steps:
       - name: Checkout cli
         uses: actions/checkout@v2
@@ -60,6 +61,7 @@ jobs:
           npm install
       - name: Semantic Release runs for draft release
         if: ${{github.event.inputs.draft-release == 'true'}}
+        id: semantic-release-draft
         run: npx semantic-release -t \${version}
         env:
           GITHUB_TOKEN: ${{ secrets.REPO_ACCESS_TOKEN }}
@@ -100,7 +102,7 @@ jobs:
         uses: dev-drprasad/delete-tag-and-release@v0.2.0
         with:
           delete_release: true
-          tag_name: \${version}-draft
+          tag_name: ${{needs.release.outputs.tag-name}}
         env:
          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       - name: Extract branch name
