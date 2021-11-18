@@ -29,7 +29,10 @@ jobs:
     nodeTest:
       runs-on: ubuntu-latest
       steps:
-      - uses: actions/checkout@v1
+      - uses: actions/checkout@v2
+      - uses: actions/setup-node@v2
+        with:
+          node-version: '14'
       - name: Publish
         uses: verdaccio/github-actions/publish@v0.1.0
         with:
