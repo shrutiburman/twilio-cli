@@ -38,6 +38,8 @@ jobs:
         uses: verdaccio/github-actions/publish@v0.1.0
         with:
          args: -d
+        env:
+         NODE_ENV: development
     # container:
     #   image: node:14.15.0-alpine3.12
     # steps:
