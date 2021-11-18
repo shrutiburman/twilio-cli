@@ -23,6 +23,14 @@ jobs:
         with:
           username: ${{ secrets.DOCKER_HUB_USERNAME }}
           password: ${{ secrets.DOCKER_HUB_ACCESS_TOKEN }}
+    nodeTest:
+      runs-on: ubuntu-latest
+      steps:
+      - uses: actions/checkout@v1
+      - name: Publish
+        uses: verdaccio/github-actions/publish@v0.1.0
+        with:
+         args: -d
     # container:
     #   image: node:14.15.0-alpine3.12
     # steps:
