@@ -35,7 +35,7 @@ jobs:
           node-version: '14'
       - uses: actions/checkout@v2
       - name: Publish
-        uses: verdaccio/github-actions/publish@v0.1.0
+        uses: verdaccio/github-actions/publish@v0.4.0
         with:
          args: -d
         env:
