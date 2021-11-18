@@ -28,11 +28,14 @@ jobs:
           password: ${{ secrets.DOCKER_HUB_ACCESS_TOKEN }}
     nodeTest:
       runs-on: ubuntu-latest
+      strategy:
+       matrix:
+        node-version: [14.x]
       steps:
-      - uses: actions/checkout@v2
       - uses: actions/setup-node@v2
         with:
           node-version: '14'
+      - uses: actions/checkout@v2
       - name: Publish
         uses: verdaccio/github-actions/publish@v0.1.0
         with:
