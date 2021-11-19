@@ -48,7 +48,7 @@ jobs:
     needs: [update-api-definitions-changelog]
     outputs:
       tag-name: ${{ steps.semantic-release-draft.outputs.TAG_NAME }}
-      draft-tag-name: ${{ steps.semantic-release-draft.outputs.VERSION }}
+      draft-tag-name: ${{ steps.semantic-release-draft.outputs.TAG_NAME }}
     steps:
       - name: Checkout cli
         uses: actions/checkout@v2
