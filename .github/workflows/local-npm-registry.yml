@@ -43,6 +43,7 @@ jobs:
       - name: Install the published release
         run: |
           node -v
+          npm i ngrok
           ngrok http 4873
           npm i http://localhost:4873/twilio-cli
     # container:
