@@ -1,3 +1,10 @@
+### [2.34.2-draft.1](https://github.com/shrutiburman/twilio-cli/compare/2.34.1...2.34.2-draft.1) (2021-11-19)
+
+
+### Library - Chores
+
+* Updated deleting step ([208f7c3](https://github.com/shrutiburman/twilio-cli/commit/208f7c32449acaa5f9833bbe9ecc6bda79180830))
+
 ### [2.34.1](https://github.com/shrutiburman/twilio-cli/compare/2.34.0...2.34.1) (2021-11-19)
 
 ## [2.34.0-draft.3](https://github.com/shrutiburman/twilio-cli/compare/2.34.0-draft.2...2.34.0-draft.3) (2021-11-18)
