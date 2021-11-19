@@ -1,3 +1,5 @@
+### [2.34.1](https://github.com/shrutiburman/twilio-cli/compare/2.34.0...2.34.1) (2021-11-19)
+
 ## [2.34.0-draft.3](https://github.com/shrutiburman/twilio-cli/compare/2.34.0-draft.2...2.34.0-draft.3) (2021-11-18)
 
 
