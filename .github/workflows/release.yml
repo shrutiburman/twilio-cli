@@ -154,7 +154,7 @@ jobs:
           REPO_NAME: shrutiburman/twilio-cli
           REPO_ACCESS_TOKEN: ${{ secrets.REPO_ACCESS_TOKEN }}
           BRANCH_NAME: ${{steps.extract_branch.outputs.branch}}
-          INPUTS: '{ "home-brew-branch": "${{github.event.inputs.homebrew-branch}}", "tag-name": "${{needs.release.outputs.draft-tag-name}}-draft", "pre-release": "${{github.event.inputs.homebrew-prerelease}}"}'
+          INPUTS: '{ "home-brew-branch": "${{github.event.inputs.homebrew-branch}}", "tag-name": "${{needs.release.outputs.draft-tag-name}}", "pre-release": "${{github.event.inputs.homebrew-prerelease}}"}'
   docker-release:
     runs-on: ubuntu-latest
     needs: [ release ]
