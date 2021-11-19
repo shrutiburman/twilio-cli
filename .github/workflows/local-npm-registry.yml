@@ -12,6 +12,7 @@ jobs:
         NODE_ENV: development
       ports:
         - 80
+        - 4773
       volumes:
         - my_docker_volume:/volume_mount
       options: --cpus 1
