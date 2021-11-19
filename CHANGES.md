@@ -1,3 +1,10 @@
+### [2.34.2-draft.3](https://github.com/shrutiburman/twilio-cli/compare/2.34.2-draft.2...2.34.2-draft.3) (2021-11-19)
+
+
+### Library - Fixes
+
+* Updated deleting step ([f86e20d](https://github.com/shrutiburman/twilio-cli/commit/f86e20dcabec0c5721a7511264033e8e443c1e45))
+
 ### [2.34.2-draft.2](https://github.com/shrutiburman/twilio-cli/compare/2.34.2-draft.1...2.34.2-draft.2) (2021-11-19)
 
 
