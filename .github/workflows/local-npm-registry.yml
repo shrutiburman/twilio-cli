@@ -45,7 +45,7 @@ jobs:
           node -v
           npm config set proxy null
           npm config set https-proxy null
-          npm congif list
+          npm config list
           npm i twilio-cli
 
     # container:
