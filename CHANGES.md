@@ -1,30 +1,3 @@
-## [2.34.0](https://github.com/shrutiburman/twilio-cli/compare/2.33.0...2.34.0) (2021-11-18)
-
-
-### Library - Features
-
-* added a new dummy branch ([0e880d6](https://github.com/shrutiburman/twilio-cli/commit/0e880d64d27567349b5cab8fec3122afa0017359))
-
-
-### Library - Chores
-
-* Updated to trigger main release from dummy branch too ([dfa5049](https://github.com/shrutiburman/twilio-cli/commit/dfa50493a1867928d2f73a5f4a811acba2284ada))
-* **release:** set `package.json` to 2.34.0-draft.3 [skip ci] ([c68d403](https://github.com/shrutiburman/twilio-cli/commit/c68d4033cbe98094084ce982f9d9ba4be88f8a23))
-* Added tag in draft ([9089d3b](https://github.com/shrutiburman/twilio-cli/commit/9089d3bd3a9b18269338f771f83b950ac03cd0de))
-* Updated tag name ([dbe0bb5](https://github.com/shrutiburman/twilio-cli/commit/dbe0bb591a9ad16d43c23213a68bf3eb70489a69))
-* **release:** set `package.json` to 2.34.0-draft.2 [skip ci] ([6af7bf3](https://github.com/shrutiburman/twilio-cli/commit/6af7bf3dd150c02f3dfd7c651382b84c2fbf329c))
-* changes for fixing delete tag ([680bb3b](https://github.com/shrutiburman/twilio-cli/commit/680bb3b6eb6c7585ddc3f18d2747f031bfe2047a))
-
-
-### Library - Fixes
-
-* Added changes for lcov ([#319](https://github.com/shrutiburman/twilio-cli/issues/319)) ([43cc6ad](https://github.com/shrutiburman/twilio-cli/commit/43cc6adefea72c08f63bea1574fab35ffa6ded54))
-* changed the repo name ([c6e1f86](https://github.com/shrutiburman/twilio-cli/commit/c6e1f863d8fe68f7f7cb0020a449977d518e4949))
-* commented auto trigger ([44b4e09](https://github.com/shrutiburman/twilio-cli/commit/44b4e09b2a493cef7c17e73bd1170ebcdd7dc670))
-* Disable hyperlinks in Ubuntu ([#329](https://github.com/shrutiburman/twilio-cli/issues/329)) ([14f7cb3](https://github.com/shrutiburman/twilio-cli/commit/14f7cb3560a02091550d5f26c86bfd19ca8a1607))
-* draft release desc ([aa79fe8](https://github.com/shrutiburman/twilio-cli/commit/aa79fe8e9ab90f2c879740b4ddd04b35c9c85afe))
-* reverting changes for the RPM build ([#326](https://github.com/shrutiburman/twilio-cli/issues/326)) ([c9eaad8](https://github.com/shrutiburman/twilio-cli/commit/c9eaad8e9cbdf0d36e5d7662daee55dfa4608f1d))
-
 ## [2.34.0-draft.3](https://github.com/shrutiburman/twilio-cli/compare/2.34.0-draft.2...2.34.0-draft.3) (2021-11-18)
 
 
