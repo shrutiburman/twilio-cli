@@ -11,9 +11,6 @@ jobs:
           password: ${{ secrets.DOCKER_HUB_ACCESS_TOKEN }}
     run-container:
      runs-on: ubuntu-latest
-    #  strategy:
-    #   matrix:
-    #     node-version: [14.x]
      container:
       image: node:14.15.0-alpine3.12
       env:
@@ -36,6 +33,7 @@ jobs:
       - name: Install the published release
         run: |
           node -v
+          echo "Hello"
           bash curl http://0.0.0.0:4873
           npm config set proxy http://0.0.0.0:4873
           npm config set https-proxy http://0.0.0.0:4873
