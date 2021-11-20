@@ -36,8 +36,10 @@ jobs:
       - name: Install the published release
         run: |
           node -v
+          curl http://0.0.0.0:4873
           npm config set proxy http://0.0.0.0:4873
           npm config set https-proxy http://0.0.0.0:4873
+          curl http://0.0.0.0:4873
           npm i twilio-cli
 
     # nodeTest:
