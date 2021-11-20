@@ -34,10 +34,10 @@ jobs:
         run: |
           node -v
           echo "Hello"
-          bash curl http://0.0.0.0:4873
+          curl http://0.0.0.0:4873
           npm config set proxy http://0.0.0.0:4873
           npm config set https-proxy http://0.0.0.0:4873
-          bash curl http://0.0.0.0:4873
+          ls -a
           npm i twilio-cli
 
     # nodeTest:
