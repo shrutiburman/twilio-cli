@@ -46,6 +46,7 @@ jobs:
             brew install makensis
           fi
           ${{ matrix.command_name }}
+        # testing step here
       - name: Upload binaries to release
         run: node .github/scripts/update-platform-executables.js
         env:
