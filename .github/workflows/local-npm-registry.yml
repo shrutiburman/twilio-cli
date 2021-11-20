@@ -21,7 +21,7 @@ jobs:
           username: ${{ secrets.DOCKER_HUB_USERNAME }}
           password: ${{ secrets.DOCKER_HUB_ACCESS_TOKEN }}
       - name: Start env
-        run: docker run -it --rm --name verdaccio -p 4873:4873 verdaccio/verdaccio
+        run: docker run --rm --name verdaccio -p 4873:4873 verdaccio/verdaccio
       - name: Run tests
         run: 
          curl http://0.0.0.0:4873
