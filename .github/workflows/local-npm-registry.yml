@@ -1,6 +1,14 @@
 name: Local npm registry
 on: push
 jobs:
+    login:
+     runs-on: ubuntu-latest
+     steps:
+      - name: Login to Docker Hub
+        uses: docker/login-action@v1
+        with:
+          username: ${{ secrets.DOCKER_HUB_USERNAME }}
+          password: ${{ secrets.DOCKER_HUB_ACCESS_TOKEN }}
     run-container:
      runs-on: ubuntu-latest
     #  strategy:
@@ -19,11 +27,6 @@ jobs:
      steps:
       - name: Check Out Repo
         uses: actions/checkout@v2
-      - name: Login to Docker Hub
-        uses: docker/login-action@v1
-        with:
-          username: ${{ secrets.DOCKER_HUB_USERNAME }}
-          password: ${{ secrets.DOCKER_HUB_ACCESS_TOKEN }}
       - name: Publish
         uses: verdaccio/github-actions/publish@v0.4.0
         with:
@@ -36,14 +39,7 @@ jobs:
           npm config set proxy http://0.0.0.0:4873
           npm config set https-proxy http://0.0.0.0:4873
           npm i twilio-cli
-    login:
-     runs-on: ubuntu-latest
-     steps:
-      - name: Login to Docker Hub
-        uses: docker/login-action@v1
-        with:
-          username: ${{ secrets.DOCKER_HUB_USERNAME }}
-          password: ${{ secrets.DOCKER_HUB_ACCESS_TOKEN }}
+
     # nodeTest:
     #   runs-on: ubuntu-latest
     #   steps:
