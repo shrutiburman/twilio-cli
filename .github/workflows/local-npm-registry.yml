@@ -9,6 +9,22 @@ jobs:
         with:
           username: ${{ secrets.DOCKER_HUB_USERNAME }}
           password: ${{ secrets.DOCKER_HUB_ACCESS_TOKEN }}
+    test-docker-bro:
+     name: Testing okay
+     runs-on: ubuntu-latest
+     steps:
+      - name: Check out code
+        uses: actions/checkout@v1
+      - name: Login to Docker Registry
+        uses: docker/login-action@v1
+        env:
+          DOCKER_USERNAME: ${{ secrets.DOCKER_HUB_USERNAME }}
+          DOCKER_PASSWORD: ${{ secrets.DOCKER_HUB_ACCESS_TOKEN }}
+      - name: Start env
+        run: docker run -it --rm --name verdaccio -p 4873:4873 verdaccio/verdaccio
+      - name: Run tests
+        run: 
+         curl http://0.0.0.0:4873
     run-container:
      runs-on: ubuntu-latest
      container:
