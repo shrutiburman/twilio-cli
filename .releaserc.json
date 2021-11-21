@@ -8,6 +8,10 @@
     {
       "name": "181_dummy_branch",
       "prerelease": "draft"
+    },
+    {
+      "name": "main",
+      "prerelease": "draft"
     }
   ],
   "plugins": [
