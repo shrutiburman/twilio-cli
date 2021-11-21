@@ -51,7 +51,7 @@ jobs:
           ${{ matrix.command_name }}
       - name: Perform sanity test on binaries
         run: |
-            "${{matrix.download_cmd}} ${{matrix.asset_name}}"
+            "${{matrix.download_cmd}} ${{matrix.artifact_name}}"
             node src/asserts/validate_tests.js
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
