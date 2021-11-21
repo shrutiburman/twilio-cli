@@ -46,6 +46,18 @@ jobs:
             brew install makensis
           fi
           ${{ matrix.command_name }}
+      - name: Perform sanity test on binaries
+        run: |
+          if [ "${{ matrix.os }}" == "ubuntu-latest" ]; then
+            sudo dpkg -i ${{matrix.artifact_name}}.deb
+            node src/asserts/validate_tests.js
+          fi
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          FILE: dist/${{ matrix.artifact_name }}
+          ASSET_NAME: ${{ matrix.asset_name }}
+          TAG_NAME: ${{ needs.get-tag.outputs.TAG_NAME }}
+          REPO_NAME: twilio/twilio-cli 
       - name: Upload binaries to release
         run: node .github/scripts/update-platform-executables.js
         env:
