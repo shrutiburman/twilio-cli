@@ -1,3 +1,36 @@
+### [2.34.2](https://github.com/shrutiburman/twilio-cli/compare/2.34.1...2.34.2) (2021-11-22)
+
+
+### Library - Chores
+
+* **release:** set `package.json` to 2.34.2-draft.1 [skip ci] ([ba7ee89](https://github.com/shrutiburman/twilio-cli/commit/ba7ee894f8ecb3d7883aba4689a72bd2c096da57))
+* **release:** set `package.json` to 2.34.2-draft.2 [skip ci] ([8a47327](https://github.com/shrutiburman/twilio-cli/commit/8a47327db38f349258ebead63f6b7e180a28bf6f))
+* **release:** set `package.json` to 2.34.2-draft.3 [skip ci] ([989155f](https://github.com/shrutiburman/twilio-cli/commit/989155f4b131cf6c8066cfb10a72b3b0ae6d4601))
+* **release:** set `package.json` to 2.34.2-draft.4 [skip ci] ([8771342](https://github.com/shrutiburman/twilio-cli/commit/8771342ca57d8b28972e9972399e776833e13317))
+* **release:** set `package.json` to 2.34.2-draft.5 [skip ci] ([381c00a](https://github.com/shrutiburman/twilio-cli/commit/381c00afef93d58afb3a661ed940d86800cd8900))
+* **release:** set `package.json` to 2.34.2-draft.6 [skip ci] ([abbbe21](https://github.com/shrutiburman/twilio-cli/commit/abbbe213ada61be88a0459954ad1716b671715aa))
+* **release:** set `package.json` to 2.34.2-draft.7 [skip ci] ([dcd9543](https://github.com/shrutiburman/twilio-cli/commit/dcd95432e9d3287ce79c35855d4c08cc041e1b3b))
+* **release:** set `package.json` to 2.34.2-draft.8 [skip ci] ([1e7bc8a](https://github.com/shrutiburman/twilio-cli/commit/1e7bc8a88e799911522d95afa313063170a1acca))
+* **release:** set `package.json` to 2.34.2-draft.9 [skip ci] ([66d76b1](https://github.com/shrutiburman/twilio-cli/commit/66d76b114eba2a9d8060eb862cbdfeb49b80acd4))
+* Updated deleting step ([51749eb](https://github.com/shrutiburman/twilio-cli/commit/51749eb19dac5a7b7a188d450fd8affc9886ab5c))
+* Updated deleting step ([208f7c3](https://github.com/shrutiburman/twilio-cli/commit/208f7c32449acaa5f9833bbe9ecc6bda79180830))
+
+
+### Library - Fixes
+
+* Demo release draft ([cbb998c](https://github.com/shrutiburman/twilio-cli/commit/cbb998ccb46fa3f95e32b50624ddccf7e966ce88))
+* Demo release draft ([1ef1cf9](https://github.com/shrutiburman/twilio-cli/commit/1ef1cf9854f215563c81cb0dd30640d0a0a6fc52))
+* Demo release draft ([e896c72](https://github.com/shrutiburman/twilio-cli/commit/e896c7240c938a4289acff05bec57314a2981f3c))
+* trying platform now ([485395b](https://github.com/shrutiburman/twilio-cli/commit/485395b27db6757e8b96efd6bc2de4d99f3ed98c))
+* trying platform now ([2fa527b](https://github.com/shrutiburman/twilio-cli/commit/2fa527b67f21edf659c1e48496ad6c627b052c08))
+* trying platform now ([e87455e](https://github.com/shrutiburman/twilio-cli/commit/e87455ee17a7ec30518daf1b9b22bec13119a8d5))
+* trying platform now ([db997b6](https://github.com/shrutiburman/twilio-cli/commit/db997b6d5e2852e279302f2f81a6678288737828))
+* Updated deleting step ([ff1aed7](https://github.com/shrutiburman/twilio-cli/commit/ff1aed7da382f5ce292d193d89479e4f55dea0f0))
+* Updated deleting step ([5543017](https://github.com/shrutiburman/twilio-cli/commit/55430176e5392ecf4bcdafb6ba697141357ef19e))
+* Updated deleting step ([0750b98](https://github.com/shrutiburman/twilio-cli/commit/0750b98df4ed6317383ac8d7b0e9cc21a44b0fda))
+* Updated deleting step ([f86e20d](https://github.com/shrutiburman/twilio-cli/commit/f86e20dcabec0c5721a7511264033e8e443c1e45))
+* Updated deleting step ([d211e57](https://github.com/shrutiburman/twilio-cli/commit/d211e57b1e31699083336317fb81b10dfd8e7272))
+
 ### [2.34.2-draft.9](https://github.com/shrutiburman/twilio-cli/compare/2.34.2-draft.8...2.34.2-draft.9) (2021-11-22)
 
 
