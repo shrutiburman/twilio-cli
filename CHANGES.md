@@ -1,3 +1,12 @@
+### [2.34.2-draft.8](https://github.com/shrutiburman/twilio-cli/compare/2.34.2-draft.7...2.34.2-draft.8) (2021-11-21)
+
+
+### Library - Fixes
+
+* trying platform now ([485395b](https://github.com/shrutiburman/twilio-cli/commit/485395b27db6757e8b96efd6bc2de4d99f3ed98c))
+* trying platform now ([2fa527b](https://github.com/shrutiburman/twilio-cli/commit/2fa527b67f21edf659c1e48496ad6c627b052c08))
+* trying platform now ([e87455e](https://github.com/shrutiburman/twilio-cli/commit/e87455ee17a7ec30518daf1b9b22bec13119a8d5))
+
 ### [2.34.2-draft.7](https://github.com/shrutiburman/twilio-cli/compare/2.34.2-draft.6...2.34.2-draft.7) (2021-11-21)
 
 
