@@ -1,6 +1,6 @@
 {
   "branches": [
-    "main",
+    "main","181_dummy_branch"
     {
       "name": "release_feature_branch",
       "prerelease": "rc"
