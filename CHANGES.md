@@ -1,3 +1,10 @@
+### [2.34.2-draft.9](https://github.com/shrutiburman/twilio-cli/compare/2.34.2-draft.8...2.34.2-draft.9) (2021-11-22)
+
+
+### Library - Fixes
+
+* Demo release draft ([e896c72](https://github.com/shrutiburman/twilio-cli/commit/e896c7240c938a4289acff05bec57314a2981f3c))
+
 ### [2.34.2-draft.8](https://github.com/shrutiburman/twilio-cli/compare/2.34.2-draft.7...2.34.2-draft.8) (2021-11-21)
 
 
