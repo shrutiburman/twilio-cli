@@ -135,6 +135,15 @@ jobs:
           REPO_ACCESS_TOKEN: ${{ secrets.REPO_ACCESS_TOKEN }}
           BRANCH_NAME: ${{steps.extract_branch.outputs.branch}}
           INPUTS: '{ "home-brew-branch": "${{github.event.inputs.homebrew-branch}}", "tag-name": "${{needs.release.outputs.draft-tag-name}}", "pre-release": "${{github.event.inputs.homebrew-prerelease}}"}'
+      - name: Run sanity testing on release-draft
+        if: ${{ github.event.inputs.draft-release == 'true' }}
+        run: node .github/scripts/trigger-workflow.js
+        env:
+          WORKFLOW_NAME: '.github/workflows/cli-test-homebrew.yml'
+          REPO_NAME: shrutiburman/twilio-cli
+          REPO_ACCESS_TOKEN: ${{ secrets.REPO_ACCESS_TOKEN }}
+          BRANCH_NAME: ${{steps.extract_branch.outputs.branch}}
+          INPUTS: '{ "version": "${{ steps.semantic-release-draft.outputs.TAG_NAME }}" }'
   delete-draft-release-oclif:
     runs-on: ubuntu-latest
     needs: [release]
