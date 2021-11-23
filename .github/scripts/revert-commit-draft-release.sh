@@ -24,4 +24,3 @@ if [[ $nCommitAuthor == *"twilio-dx"* ]]; then
   git push origin refs/heads/$1:refs/heads/$1
 fi
 
-
