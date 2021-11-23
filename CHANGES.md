@@ -1,3 +1,10 @@
+### [2.34.5](https://github.com/shrutiburman/twilio-cli/compare/2.34.4...2.34.5) (2021-11-23)
+
+
+### Library - Fixes
+
+* changes ([8963315](https://github.com/shrutiburman/twilio-cli/commit/89633153250bec32540ae12f11af431ddee53076))
+
 ### [2.34.4](https://github.com/shrutiburman/twilio-cli/compare/2.34.3...2.34.4) (2021-11-23)
 
 
