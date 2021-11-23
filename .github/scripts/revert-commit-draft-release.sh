@@ -1,6 +1,5 @@
 #!/bin/sh
 echo "Running revert last commit script"
-
 branch="$1"
 echo "Git configurations :"
 git config --global user.email "team_interfaces+github@twilio.com"
