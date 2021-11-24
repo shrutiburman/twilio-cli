@@ -76,7 +76,6 @@ jobs:
           - os: ubuntu-latest
             artifact_name: deb/${{ github.event.inputs.formula }}_${{ needs.get-tag.outputs.TAG_NAME }}-1_amd64.deb
             asset_name: ${{ github.event.inputs.formula }}-${{ needs.get-tag.outputs.TAG_NAME }}.deb
-            command_name: sudo npx oclif-dev pack:deb
             download_cmd: sudo dpkg -i
           # - os: macos-latest
           #   artifact_name: win/${{ github.event.inputs.formula }}-v${{ needs.get-tag.outputs.TAG_NAME }}-x86.exe
@@ -98,7 +97,7 @@ jobs:
           FILE: dist/${{ matrix.artifact_name }}
           ASSET_NAME: ${{ matrix.asset_name }}
           TAG_NAME: ${{ needs.get-tag.outputs.TAG_NAME }}
-          REPO_NAME: twilio/twilio-cli
+          REPO_NAME: shrutiburman/twilio-cli
 
   notify-complete-fail:
     if: ${{ failure() || cancelled() }}
