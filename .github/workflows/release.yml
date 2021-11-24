@@ -216,6 +216,30 @@ jobs:
           REPO_NAME: shrutiburman/twilio-cli
           REPO_ACCESS_TOKEN: ${{ secrets.REPO_ACCESS_TOKEN }}
           BRANCH_NAME: ${{steps.extract_branch.outputs.branch}}
+  executables-sanity-test: 
+    runs-on: ubuntu-latest
+    if: ${{github.event.inputs.draft-release == 'true'}}
+    needs: [platform-executables-release]
+    steps:
+      - name: Extract branch name
+        id: extract_branch
+        run: echo "##[set-output name=branch;]$(echo ${GITHUB_REF#refs/heads/})"
+      - name: Wait for draft release to succeed
+        uses: lewagon/wait-on-check-action@v1.0.0
+        with:
+          ref: ${{steps.extract_branch.outputs.branch}}
+          check-name: 'Platform Executable Release'
+          repo-token: ${{ secrets.GITHUB_TOKEN }}
+          wait-interval: 30
+      - name: Run sanity testing on release-draft
+        run: node .github/scripts/trigger-workflow.js
+        env:
+          WORKFLOW_NAME: '.github/workflows/platform-exec-sanity-tests.yml'
+          REPO_NAME: shrutiburman/twilio-cli
+          REPO_ACCESS_TOKEN: ${{ secrets.REPO_ACCESS_TOKEN }}
+          BRANCH_NAME: ${{steps.extract_branch.outputs.branch}}
+          INPUTS: '{ "version": "${{ steps.semantic-release-draft.outputs.TAG_NAME }}" }'
+
   notify-complete-fail:
     if: ${{ failure() || cancelled() }}
     needs: [ release, oclif-release, platform-executables-release ]
