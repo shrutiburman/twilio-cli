@@ -139,6 +139,7 @@ jobs:
           INPUTS: '{ "home-brew-branch": "${{github.event.inputs.homebrew-branch}}", "tag-name": "${{needs.release.outputs.draft-tag-name}}-draft", "pre-release": "${{github.event.inputs.homebrew-prerelease}}"}'
   oclif-draft-sanity-test: 
     runs-on: ubuntu-latest
+    if: ${{github.event.inputs.draft-release == 'true'}}
     needs: [oclif-release]
     steps:
       - name: Extract branch name
@@ -162,10 +163,10 @@ jobs:
           INPUTS: '{ "version": "${{ steps.semantic-release-draft.outputs.TAG_NAME }}" }'
   delete-draft-release-oclif:
     runs-on: ubuntu-latest
+    if: ${{github.event.inputs.draft-release == 'true'}}
     needs: [oclif-release]
     steps:
      - name: Delete draft release
-       if: ${{github.event.inputs.draft-release == 'true'}}
        run: node .github/scripts/trigger-workflow.js
        env:
         WORKFLOW_NAME: '.github/workflows/delete-draft-tag-release.yml'
