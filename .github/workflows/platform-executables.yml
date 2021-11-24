@@ -83,6 +83,8 @@ jobs:
            if [ "$RUNNER_OS" == "macOS" ]; then
             brew install makensis
            fi
+           node -v
+           echo "Hello"
            "${{matrix.download_cmd}} ${{matrix.asset_name}}"
            node src/asserts/validate_tests.js
          env:
