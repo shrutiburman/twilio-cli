@@ -62,8 +62,8 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
-          gh release download 2.31.0 --pattern '*.deb'
-          sudo dpkg -i twilio-2.31.0.deb
+          gh release download 2.34.0 --pattern '*.deb'
+          sudo dpkg -i twilio-2.34.0.deb
           twilio --version
   
   # platform-exec-test:
