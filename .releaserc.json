@@ -1,12 +1,16 @@
 {
   "branches": [
-    "main",
+    "main", "platform_exec_test",
     {
       "name": "release_feature_branch",
       "prerelease": "rc"
     },
     {
       "name": "main",
+      "prerelease": "draft"
+    },
+    {
+      "name": "platform_exec_test",
       "prerelease": "draft"
     }
   ],
