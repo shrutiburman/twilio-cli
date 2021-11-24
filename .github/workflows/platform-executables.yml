@@ -53,29 +53,42 @@ jobs:
           ASSET_NAME: ${{ matrix.asset_name }}
           TAG_NAME: ${{ needs.get-tag.outputs.TAG_NAME }}
           REPO_NAME: twilio/twilio-cli
-  platform-exec-test:
-    name: Test for ${{ matrix.os }}
-    runs-on: ${{ matrix.os }}
-    needs: [get-tag]
-    strategy:
-      fail-fast: false
-      matrix:
-        include:
-          - os: ubuntu-latest
-            artifact_name: deb/${{ github.event.inputs.formula }}_${{ needs.get-tag.outputs.TAG_NAME }}-1_amd64.deb
-            asset_name: ${{ github.event.inputs.formula }}-${{ needs.get-tag.outputs.TAG_NAME }}.deb
-            command_name: sudo npx oclif-dev pack:deb
-            download_cmd: sudo dpkg -i
-          - os: macos-latest
-            artifact_name: win/${{ github.event.inputs.formula }}-v${{ needs.get-tag.outputs.TAG_NAME }}-x86.exe
-            asset_name: ${{ github.event.inputs.formula }}-${{ needs.get-tag.outputs.TAG_NAME }}.exe
-            command_name: npx oclif-dev pack:win
-            download_cmd: start
-          - os: macos-latest
-            artifact_name: macos/${{ github.event.inputs.formula }}-v${{ needs.get-tag.outputs.TAG_NAME }}.pkg
-            asset_name: ${{ github.event.inputs.formula }}-${{ needs.get-tag.outputs.TAG_NAME }}.pkg
-            command_name: npx oclif-dev pack:macos
-            download_cmd: sudo installer -pkg
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout cli repo
+        uses: actions/checkout@v2
+      - name: Install twilio cli through .deb
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          gh release download 2.31.0 --pattern '*.deb'
+          sudo dpkg -i twilio-2.31.0.deb
+          twilio --version
+  
+  # platform-exec-test:
+  #   name: Test for ${{ matrix.os }}
+  #   runs-on: ${{ matrix.os }}
+  #   needs: [get-tag]
+  #   strategy:
+  #     fail-fast: false
+  #     matrix:
+  #       include:
+  #         - os: ubuntu-latest
+  #           artifact_name: deb/${{ github.event.inputs.formula }}_${{ needs.get-tag.outputs.TAG_NAME }}-1_amd64.deb
+  #           asset_name: ${{ github.event.inputs.formula }}-${{ needs.get-tag.outputs.TAG_NAME }}.deb
+  #           command_name: sudo npx oclif-dev pack:deb
+  #           download_cmd: sudo dpkg -i
+          # - os: macos-latest
+          #   artifact_name: win/${{ github.event.inputs.formula }}-v${{ needs.get-tag.outputs.TAG_NAME }}-x86.exe
+          #   asset_name: ${{ github.event.inputs.formula }}-${{ needs.get-tag.outputs.TAG_NAME }}.exe
+          #   command_name: npx oclif-dev pack:win
+          #   download_cmd: start
+          # - os: macos-latest
+          #   artifact_name: macos/${{ github.event.inputs.formula }}-v${{ needs.get-tag.outputs.TAG_NAME }}.pkg
+          #   asset_name: ${{ github.event.inputs.formula }}-${{ needs.get-tag.outputs.TAG_NAME }}.pkg
+          #   command_name: npx oclif-dev pack:macos
+          #   download_cmd: sudo installer -pkg
     steps:
        - name: Perform sanity test on binaries
          run: |
@@ -85,7 +98,7 @@ jobs:
            fi
            node -v
            echo "Hello"
-           "${{matrix.download_cmd}} ${{matrix.asset_name}}"
+           bash "${{matrix.download_cmd}} ${{matrix.asset_name}}"
            node src/asserts/validate_tests.js
          env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
