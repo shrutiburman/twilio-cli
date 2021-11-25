@@ -1,7 +1,7 @@
 name: Platform Executable Sanity testing
 on:
  push:
-  [main, platform_exec_test]x
+  [main, platform_exec_test]
 #   workflow_dispatch:
 #     inputs:
 #       formula:
