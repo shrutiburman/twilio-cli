@@ -67,6 +67,6 @@ jobs:
              echo "Windows.."
             fi
             twilio --version
-      #node test/asserts/validate_tests.js
+            node test/asserts/validate_tests.js
       # gh release list
          
