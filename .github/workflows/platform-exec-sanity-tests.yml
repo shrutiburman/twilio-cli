@@ -1,26 +1,15 @@
 name: Platform Executable Sanity testing
 on:
+  #workflow_dispatch:
+  #workflow_run:
+    # # wait for Platform Executable Release to complete
+    # workflows: ["Platform Executable Release"]
+    # branches: [main]
+    # types:
+    #   - completed
  push:
   branches:
   - platform_exec_test
-#   workflow_dispatch:
-#     inputs:
-#       formula:
-#         description: 'Artifact Prefix'
-#         default: twilio
-# jobs:
-# on:
-#   # push:
-#   #  branches: [platform_exec_test]
-#   workflow_dispatch:
-#    inputs:
-#       formula:
-#         description: 'Artifact Prefix'
-#         default: twilio
-#     #  workflows: ["Platform Executable Release"]
-#     #  branches: [main, platform_exec_test]
-#     #  types:
-#     #    - completed
   
 jobs:
   get-tag:
@@ -57,9 +46,9 @@ jobs:
          run: |
             gh release download ${{ needs.get-tag.outputs.TAG_NAME }} --pattern '*${{matrix.extension_type}}'
             ${{matrix.cmds_to_execute}}
-            twilio --version
             ls
-            twilio:api --help
+            twilio --version
+            twilio api --help
   platform-exec-test-Windows:
      name: Test for Windows
      runs-on: windows-latest
@@ -82,5 +71,5 @@ jobs:
             cd C:\"Program Files (x86)\twilio-cli"
             dir
             twilio --version
-            twilio:api --help
+            twilio api --help
          
