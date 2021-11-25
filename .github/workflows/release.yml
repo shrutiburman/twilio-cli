@@ -229,7 +229,7 @@ jobs:
           ref: ${{steps.extract_branch.outputs.branch}}
           check-name: 'Platform Executable Release'
           repo-token: ${{ secrets.GITHUB_TOKEN }}
-          wait-interval: 30
+          wait-interval: 30000
       - name: Run sanity testing on release-draft
         run: node .github/scripts/trigger-workflow.js
         env:

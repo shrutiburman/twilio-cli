@@ -26,7 +26,7 @@ jobs:
   get-tag:
     runs-on: ubuntu-latest
     outputs:
-     TAG_NAME: '2.34.0' #${{steps.get-tag.outputs.TAG_NAME}}
+     TAG_NAME: ${{steps.get-tag.outputs.TAG_NAME}}
     steps:
      - uses: actions/checkout@v2
      - name: Getting latest tag
@@ -56,25 +56,17 @@ jobs:
             command_name: npx oclif-dev pack:macos
             download_cmd: sudo installer -pkg
     steps:
-      #  - name: Checkout cli repo
-      #    uses: actions/checkout@v2
-      #  - name: Install twilio cli through .deb
-      #    env:
-      #     GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-      #    run: |
-      #     gh release download 2.31.0 --pattern '*.deb'
-      #     sudo dpkg -i twilio-2.31.0.deb
-      #     twilio --version
        - name: Checkout cli repo
          uses: actions/checkout@v2
        - name: Perform sanity test on binaries
-         run: |
-           gh release download ${{matrix.asset_name}}
-           ${{matrix.download_cmd}} ${{matrix.asset_name}}
-           node src/asserts/validate_tests.js
          env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           FILE: dist/${{ matrix.artifact_name }}
           ASSET_NAME: ${{ matrix.asset_name }}
           TAG_NAME: ${{ needs.get-tag.outputs.TAG_NAME }}
           REPO_NAME: shrutiburman/twilio-cli
+         run: |
+           gh release download ${{matrix.asset_name}}
+           ${{matrix.download_cmd}} ${{matrix.asset_name}}
+           node src/asserts/validate_tests.js
+         
