@@ -83,6 +83,4 @@ jobs:
             cd C:\"Program Files (x86)\twilio-cli"
             dir
             twilio --version
-            npm install
-            npm run test
          
