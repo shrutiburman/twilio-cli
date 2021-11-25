@@ -60,7 +60,6 @@ jobs:
             twilio --version
             ls
             twilio:api --help
-      #      npm run test enable this later
   platform-exec-test-Windows:
      name: Test for Windows
      runs-on: windows-latest
