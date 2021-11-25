@@ -59,10 +59,8 @@ jobs:
             ${{matrix.cmds_to_execute}}
             twilio --version
             ls
-            make install
             npm install
-            npm install mocha -g
-            node test/asserts/validate_tests.js
+            npm run test
   platform-exec-test-Windows:
      name: Test for Windows
      runs-on: windows-latest
@@ -86,7 +84,7 @@ jobs:
             dir
             twilio --version
             npm install
-            node twilio-cli/test/asserts/validate_tests.js
+            npm run test
       # gh release list
       #  $env:Path += ";C:\Program Files (x86)\twilio-cli\bin"
          
