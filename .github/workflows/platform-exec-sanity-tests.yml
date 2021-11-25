@@ -80,11 +80,8 @@ jobs:
             sleep 100
             $env:Path += ";C:\Program Files (x86)\twilio-cli\bin"
             $Env:Path
-            cd C:\"Program Files (x86)"
-            dir
+            cd C:\"Program Files (x86)\twilio-cli"
             twilio --version
             npm install
             npm run test
-      # gh release list
-      #  $env:Path += ";C:\Program Files (x86)\twilio-cli\bin"
          
