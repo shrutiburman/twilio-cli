@@ -1,16 +1,13 @@
 name: Platform Executable Sanity testing
 on:
-  #workflow_dispatch:
-  #workflow_run:
-    # # wait for Platform Executable Release to complete
-    # workflows: ["Platform Executable Release"]
-    # branches: [main]
-    # types:
-    #   - completed
- push:
-  branches:
-  - platform_exec_test
-  
+  workflow_dispatch:
+  workflow_run:
+    # wait for Platform Executable Release to complete
+    workflows: ["Platform Executable Release"]
+    branches: [main]
+    types:
+      - completed
+ 
 jobs:
   get-tag:
     runs-on: ubuntu-latest
