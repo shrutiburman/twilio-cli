@@ -73,6 +73,8 @@ jobs:
          run: |
             make install
             gh release download ${{ needs.get-tag.outputs.TAG_NAME }} --pattern '*.exe'
+            iwr -useb get.scoop.sh | iex
+            scoop install gsudo
             ./twilio-${{ needs.get-tag.outputs.TAG_NAME }}.exe /S
             sleep 100
             $env:Path += ";C:\Program Files (x86)\twilio-cli\bin"
