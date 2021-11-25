@@ -46,13 +46,6 @@ jobs:
             extension_type: '.deb'
             cmds_to_execute: sudo dpkg -i twilio-${{ needs.get-tag.outputs.TAG_NAME }}.deb
           - os: macos-latest
-            extension_type: '.exe'
-            cmds_to_execute: 
-              - ./twilio-${{ needs.get-tag.outputs.TAG_NAME }}.exe /S
-              - sleep 100
-              - $env:Path += ";C:\Program Files (x86)\twilio-cli\bin"
-              - $Env:Path
-          - os: macos-latest
             extension_type: '.pkg'
             cmds_to_execute: sudo installer -pkg twilio-${{ needs.get-tag.outputs.TAG_NAME }}.pkg -target ~/
     steps:
@@ -63,15 +56,23 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
          run: |
             gh release download ${{ needs.get-tag.outputs.TAG_NAME }} --pattern '*${{matrix.extension_type}}'
-            
-            if ["${{matrix.extension_type}}" == ".exe"]; then
-             {% for rule in  ${{matrix.cmds_to_execute}} %}
-              {{ rule }}
-             {% endfor %}
-            fi
-            if ["${{matrix.extension_type}}" != ".exe"]; then
-             ${{matrix.cmds_to_execute}}
-            fi
+            ${{matrix.cmds_to_execute}}
+            twilio --version
+            node test/asserts/validate_tests.js
+  platform-exec-test-Windows:
+     name: Test for Windows
+     runs-on: macos-latest
+     needs: [get-tag]  
+     steps:
+       - name: Perform sanity test on Windows
+         env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+         run: |
+            gh release download ${{ needs.get-tag.outputs.TAG_NAME }} --pattern '*.exe'
+            ./twilio-${{ needs.get-tag.outputs.TAG_NAME }}.exe /S
+            sleep 100
+            $env:Path += ";C:\Program Files (x86)\twilio-cli\bin"
+            $Env:Path
             twilio --version
             node test/asserts/validate_tests.js
       # gh release list
