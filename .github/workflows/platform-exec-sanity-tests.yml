@@ -1,11 +1,13 @@
 name: Platform Executable Sanity testing
 on:
-  workflow_dispatch:
-    inputs:
-      formula:
-        description: 'Artifact Prefix'
-        default: twilio
-jobs:
+ push:
+  [main, platform_exec_test]x
+#   workflow_dispatch:
+#     inputs:
+#       formula:
+#         description: 'Artifact Prefix'
+#         default: twilio
+# jobs:
 # on:
 #   # push:
 #   #  branches: [platform_exec_test]
@@ -19,7 +21,7 @@ jobs:
 #     #  types:
 #     #    - completed
   
-# jobs:
+jobs:
   get-tag:
     runs-on: ubuntu-latest
     outputs:
@@ -39,17 +41,17 @@ jobs:
      matrix:
         include:
           - os: ubuntu-latest
-            artifact_name: deb/${{ github.event.inputs.formula }}_${{ needs.get-tag.outputs.TAG_NAME }}-1_amd64.deb
-            asset_name: ${{ github.event.inputs.formula }}-${{ needs.get-tag.outputs.TAG_NAME }}.deb
+            artifact_name: deb/$twilio_${{ needs.get-tag.outputs.TAG_NAME }}-1_amd64.deb
+            asset_name: $twilio-${{ needs.get-tag.outputs.TAG_NAME }}.deb
             download_cmd: sudo dpkg -i
           - os: macos-latest
-            artifact_name: win/${{ github.event.inputs.formula }}-v${{ needs.get-tag.outputs.TAG_NAME }}-x86.exe
-            asset_name: ${{ github.event.inputs.formula }}-${{ needs.get-tag.outputs.TAG_NAME }}.exe
+            artifact_name: win/$twilio-v${{ needs.get-tag.outputs.TAG_NAME }}-x86.exe
+            asset_name: $twilio-${{ needs.get-tag.outputs.TAG_NAME }}.exe
             command_name: npx oclif-dev pack:win
             download_cmd: start
           - os: macos-latest
-            artifact_name: macos/${{ github.event.inputs.formula }}-v${{ needs.get-tag.outputs.TAG_NAME }}.pkg
-            asset_name: ${{ github.event.inputs.formula }}-${{ needs.get-tag.outputs.TAG_NAME }}.pkg
+            artifact_name: macos/$twilio-v${{ needs.get-tag.outputs.TAG_NAME }}.pkg
+            asset_name: $twilio-${{ needs.get-tag.outputs.TAG_NAME }}.pkg
             command_name: npx oclif-dev pack:macos
             download_cmd: sudo installer -pkg
     steps:
