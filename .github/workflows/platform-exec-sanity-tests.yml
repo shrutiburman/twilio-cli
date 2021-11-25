@@ -67,9 +67,6 @@ jobs:
       #     twilio --version
        - name: Checkout cli repo
          uses: actions/checkout@v2
-       - name: Install twilio cli for ${{ matrix.os}}
-         env:
-           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
        - name: Perform sanity test on binaries
          run: |
            gh release download ${{matrix.asset_name}}
