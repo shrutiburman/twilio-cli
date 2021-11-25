@@ -1,18 +1,25 @@
 name: Platform Executable Sanity testing
 on:
-  # push:
-  #  branches: [platform_exec_test]
   workflow_dispatch:
-   inputs:
+    inputs:
       formula:
         description: 'Artifact Prefix'
         default: twilio
-    #  workflows: ["Platform Executable Release"]
-    #  branches: [main, platform_exec_test]
-    #  types:
-    #    - completed
-  
 jobs:
+# on:
+#   # push:
+#   #  branches: [platform_exec_test]
+#   workflow_dispatch:
+#    inputs:
+#       formula:
+#         description: 'Artifact Prefix'
+#         default: twilio
+#     #  workflows: ["Platform Executable Release"]
+#     #  branches: [main, platform_exec_test]
+#     #  types:
+#     #    - completed
+  
+# jobs:
   get-tag:
     runs-on: ubuntu-latest
     outputs:
