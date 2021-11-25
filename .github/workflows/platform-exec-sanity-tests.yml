@@ -61,9 +61,6 @@ jobs:
        - name: Perform sanity test on binaries
          env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          FILE: dist/${{ matrix.artifact_name }}
-          ASSET_NAME: ${{ matrix.asset_name }}
-          TAG_NAME: ${{ needs.get-tag.outputs.TAG_NAME }}
           REPO_NAME: shrutiburman/twilio-cli
          run: |
            gh release download ${{matrix.asset_name}}
