@@ -1,8 +1,12 @@
 name: Platform Executable Sanity testing
 on:
- push:
-  branches:
-   [platform_exec_test]
+  push:
+   branches: [platform_exec_test]
+  workflow_dispatch:
+   inputs:
+      formula:
+        description: 'Artifact Prefix'
+        default: twilio
   #workflow_dispatch:
   # workflow_run:
   #    workflows: ["Platform Executable Release"]
