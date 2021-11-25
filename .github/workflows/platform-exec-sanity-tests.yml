@@ -47,10 +47,7 @@ jobs:
             cmds_to_execute: sudo dpkg -i twilio-${{ needs.get-tag.outputs.TAG_NAME }}.deb
           - os: macos-latest
             extension_type: '.exe'
-            cmds_to_execute: './twilio-${{ needs.get-tag.outputs.TAG_NAME }}.exe /S
-                      sleep 100
-                      $env:Path += ";C:\Program Files (x86)\twilio-cli\bin"
-                      $Env:Path'
+            cmds_to_execute: 'ls'
           - os: macos-latest
             extension_type: '.pkg'
             command_name: npx oclif-dev pack:macos
@@ -64,7 +61,13 @@ jobs:
          run: |
             gh release download ${{ needs.get-tag.outputs.TAG_NAME }} --pattern '*${{matrix.extension_type}}'
             ${{matrix.cmds_to_execute}}
+            if [ $matrix.extension_type == ".exe" ]; then
+            ./twilio-${{ needs.get-tag.outputs.TAG_NAME }}.exe /S
+            sleep 100
+            $env:Path += ";C:\Program Files (x86)\twilio-cli\bin"
+            $Env:Path'
+            fi
             twilio --version
-            node test/asserts/validate_tests.js
+      #node test/asserts/validate_tests.js
       # gh release list
          
