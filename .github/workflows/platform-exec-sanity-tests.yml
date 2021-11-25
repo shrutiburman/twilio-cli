@@ -55,8 +55,8 @@ jobs:
          env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
          run: |
-            make install
             gh release download ${{ needs.get-tag.outputs.TAG_NAME }} --pattern '*${{matrix.extension_type}}'
+            make install
             ${{matrix.cmds_to_execute}}
             twilio --version
             node test/asserts/validate_tests.js
