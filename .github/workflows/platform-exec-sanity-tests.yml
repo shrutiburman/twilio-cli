@@ -71,8 +71,8 @@ jobs:
          env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
          run: |
-            make install
             gh release download ${{ needs.get-tag.outputs.TAG_NAME }} --pattern '*.exe'
+            make install
             iwr -useb get.scoop.sh | iex
             scoop install gsudo
             ./twilio-${{ needs.get-tag.outputs.TAG_NAME }}.exe /S
