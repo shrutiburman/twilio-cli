@@ -62,7 +62,7 @@ jobs:
       - name: Semantic Release runs for draft release
         if: ${{github.event.inputs.draft-release == 'true'}}
         id: semantic-release-draft
-        run: npx semantic-release -t \${version}
+        run: npx semantic-release -t \${version} --access restricted
         env:
           GITHUB_TOKEN: ${{ secrets.REPO_ACCESS_TOKEN }}
           NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
@@ -76,7 +76,7 @@ jobs:
       - name: Extract branch name
         id: extract_branch
         run: echo "##[set-output name=branch;]$(echo ${GITHUB_REF#refs/heads/})"
-      - name: Run sanity testing for on release-draft
+      - name: Run sanity testing on release-draft
         if: ${{ github.event.inputs.draft-release == 'true' && steps.semantic-release-draft.outputs.TAG_NAME != '' }}
         run: node .github/scripts/trigger-workflow.js
         env:
@@ -139,7 +139,7 @@ jobs:
           ref: ${{steps.extract_branch.outputs.branch}}
           check-name: 'Oclif Release'
           repo-token: ${{ secrets.GITHUB_TOKEN }}
-          wait-interval: 10
+          wait-interval: 100 # in sec
       - name: Run sanity testing on release-draft
         if: ${{ github.event.inputs.draft-release == 'true' }}
         run: node .github/scripts/trigger-workflow.js
