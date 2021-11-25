@@ -58,6 +58,7 @@ jobs:
             gh release download ${{ needs.get-tag.outputs.TAG_NAME }} --pattern '*${{matrix.extension_type}}'
             ${{matrix.cmds_to_execute}}
             twilio --version
+            ls
             make install
             npm install
             npm install mocha -g
