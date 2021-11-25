@@ -1,3 +1,17 @@
+## [2.34.0](https://github.com/shrutiburman/twilio-cli/compare/2.33.1...2.34.0) (2021-11-25)
+
+
+### Library - Chores
+
+* workflows in rpm build ([579457f](https://github.com/shrutiburman/twilio-cli/commit/579457f23107e24f98f5c88ea6249531f88de0e6))
+
+
+### Library - Features
+
+* added a separate workflow for sanity checks ([3e22951](https://github.com/shrutiburman/twilio-cli/commit/3e22951605839b78a3d33d24ff06dcf4ad031cee))
+* added a separate workflow for sanity checks ([514b0aa](https://github.com/shrutiburman/twilio-cli/commit/514b0aad6f975ad7a834bcb60d03db862c784757))
+* added a separate workflow for sanity checks , trigger from release ([53354cb](https://github.com/shrutiburman/twilio-cli/commit/53354cb3e4cc2a11ffe658d0b5b7cd11716892c6))
+
 ### [2.33.1](https://github.com/shrutiburman/twilio-cli/compare/2.33.0...2.33.1) (2021-11-24)
 
 
