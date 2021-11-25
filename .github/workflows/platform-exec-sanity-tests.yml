@@ -55,7 +55,7 @@ jobs:
          env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
          run: |
-            npm install
+            make install
             gh release download ${{ needs.get-tag.outputs.TAG_NAME }} --pattern '*${{matrix.extension_type}}'
             ${{matrix.cmds_to_execute}}
             twilio --version
@@ -71,7 +71,7 @@ jobs:
          env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
          run: |
-            npm install
+            make install
             gh release download ${{ needs.get-tag.outputs.TAG_NAME }} --pattern '*.exe'
             ./twilio-${{ needs.get-tag.outputs.TAG_NAME }}.exe /S
             sleep 100
