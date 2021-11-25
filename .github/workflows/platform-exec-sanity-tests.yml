@@ -65,8 +65,14 @@ jobs:
       #     gh release download 2.31.0 --pattern '*.deb'
       #     sudo dpkg -i twilio-2.31.0.deb
       #     twilio --version
+       - name: Checkout cli repo
+         uses: actions/checkout@v2
+       - name: Install twilio cli for ${{ matrix.os}}
+         env:
+           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
        - name: Perform sanity test on binaries
          run: |
+           gh release download ${{matrix.asset_name}}
            ${{matrix.download_cmd}} ${{matrix.asset_name}}
            node src/asserts/validate_tests.js
          env:
