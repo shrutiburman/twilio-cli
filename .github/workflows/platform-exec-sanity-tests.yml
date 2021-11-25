@@ -81,6 +81,7 @@ jobs:
             $env:Path += ";C:\Program Files (x86)\twilio-cli\bin"
             $Env:Path
             cd C:\"Program Files (x86)\twilio-cli"
+            dir
             twilio --version
             npm install
             npm run test
