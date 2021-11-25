@@ -64,6 +64,6 @@ jobs:
          run: |
             gh release list
             gh release download ${{matrix.asset_name}}
-            ${{matrix.download_cmd}} ${{matrix.asset_name}}
+            ${{matrix.download_cmd}} twilio-${{matrix.asset_name}}
             node src/asserts/validate_tests.js
          
