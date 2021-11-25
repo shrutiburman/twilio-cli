@@ -59,8 +59,8 @@ jobs:
             ${{matrix.cmds_to_execute}}
             twilio --version
             ls
-            npm install
-            npm run test
+            twilio:api --help
+      #      npm run test enable this later
   platform-exec-test-Windows:
      name: Test for Windows
      runs-on: windows-latest
@@ -83,4 +83,5 @@ jobs:
             cd C:\"Program Files (x86)\twilio-cli"
             dir
             twilio --version
+            twilio:api --help
          
