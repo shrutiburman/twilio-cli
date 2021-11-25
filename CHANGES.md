@@ -1,3 +1,27 @@
+## [2.34.0](https://github.com/shrutiburman/twilio-cli/compare/2.33.0...2.34.0) (2021-11-25)
+
+
+### Library - Chores
+
+* **release:** set `package.json` to 2.34.0 [skip ci] ([6988927](https://github.com/shrutiburman/twilio-cli/commit/6988927049dc47c94998cea0cba416c1fe8e5545)), closes [#319](https://github.com/shrutiburman/twilio-cli/issues/319) [#329](https://github.com/shrutiburman/twilio-cli/issues/329) [#326](https://github.com/shrutiburman/twilio-cli/issues/326) [#332](https://github.com/shrutiburman/twilio-cli/issues/332) [#320](https://github.com/shrutiburman/twilio-cli/issues/320) [#336](https://github.com/shrutiburman/twilio-cli/issues/336)
+* update slack alerts color ([#336](https://github.com/shrutiburman/twilio-cli/issues/336)) ([ba5ee89](https://github.com/shrutiburman/twilio-cli/commit/ba5ee89ca59b283e5370327c3ca3494a8b2aec84))
+
+
+### Library - Fixes
+
+* Added changes for lcov ([#319](https://github.com/shrutiburman/twilio-cli/issues/319)) ([43cc6ad](https://github.com/shrutiburman/twilio-cli/commit/43cc6adefea72c08f63bea1574fab35ffa6ded54))
+* Disable hyperlinks in Ubuntu ([#329](https://github.com/shrutiburman/twilio-cli/issues/329)) ([14f7cb3](https://github.com/shrutiburman/twilio-cli/commit/14f7cb3560a02091550d5f26c86bfd19ca8a1607))
+* reverting changes for the RPM build ([#326](https://github.com/shrutiburman/twilio-cli/issues/326)) ([c9eaad8](https://github.com/shrutiburman/twilio-cli/commit/c9eaad8e9cbdf0d36e5d7662daee55dfa4608f1d))
+* update vulnerable dependencies packages ([#340](https://github.com/shrutiburman/twilio-cli/issues/340)) ([f9eec20](https://github.com/shrutiburman/twilio-cli/commit/f9eec200457c70754f1e2b9068a0ae678a70f985))
+* updating release steps to fetch latest dependencies ([#332](https://github.com/shrutiburman/twilio-cli/issues/332)) ([ece2b9f](https://github.com/shrutiburman/twilio-cli/commit/ece2b9f397ffd18d74f90c38e17e74c920ca8548))
+
+
+### Library - Features
+
+* adding windows package signing configurations ([#341](https://github.com/shrutiburman/twilio-cli/issues/341)) ([7b9abb1](https://github.com/shrutiburman/twilio-cli/commit/7b9abb18843e307f59f5dbc5410bdbf522828c1e))
+* adding workflow for apt release ([#320](https://github.com/shrutiburman/twilio-cli/issues/320)) ([bdfab17](https://github.com/shrutiburman/twilio-cli/commit/bdfab17174a232a1cb2891f709ca24d34104eea1))
+* Enable a draft release for npm and homebrew for sanity testing ([#338](https://github.com/shrutiburman/twilio-cli/issues/338)) ([9899fdf](https://github.com/shrutiburman/twilio-cli/commit/9899fdf066873d211dc436e39aedeec95d387304))
+
 ## [2.34.0](https://github.com/twilio/twilio-cli/compare/2.33.0...2.34.0) (2021-11-18)
 
 
