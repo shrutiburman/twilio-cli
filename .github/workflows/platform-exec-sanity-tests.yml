@@ -56,9 +56,10 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
          run: |
             gh release download ${{ needs.get-tag.outputs.TAG_NAME }} --pattern '*${{matrix.extension_type}}'
-            make install
             ${{matrix.cmds_to_execute}}
             twilio --version
+            make install
+            npm install
             node test/asserts/validate_tests.js
   platform-exec-test-Windows:
      name: Test for Windows
@@ -82,6 +83,7 @@ jobs:
             cd C:\"Program Files (x86)"
             dir
             twilio --version
+            npm install
             node test/asserts/validate_tests.js
       # gh release list
       #  $env:Path += ";C:\Program Files (x86)\twilio-cli\bin"
