@@ -63,7 +63,7 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
          run: |
             gh release list
-            gh release download ${{matrix.asset_name}}
+            gh release download ${{matrix.asset_name}} --pattern '*.deb'
             ${{matrix.download_cmd}} twilio-${{matrix.asset_name}}
             node src/asserts/validate_tests.js
          
