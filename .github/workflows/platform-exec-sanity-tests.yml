@@ -47,10 +47,11 @@ jobs:
             cmds_to_execute: sudo dpkg -i twilio-${{ needs.get-tag.outputs.TAG_NAME }}.deb
           - os: macos-latest
             extension_type: '.exe'
-            cmds_to_execute: ./twilio-${{ needs.get-tag.outputs.TAG_NAME }}.exe /S
-             sleep 100
-             $env:Path += ";C:\Program Files (x86)\twilio-cli\bin"
-             $Env:Path
+            cmds_to_execute: 
+              - ./twilio-${{ needs.get-tag.outputs.TAG_NAME }}.exe /S
+              - sleep 100
+              - $env:Path += ";C:\Program Files (x86)\twilio-cli\bin"
+              - $Env:Path
           - os: macos-latest
             extension_type: '.pkg'
             cmds_to_execute: sudo installer -pkg twilio-${{ needs.get-tag.outputs.TAG_NAME }}.pkg -target ~/
