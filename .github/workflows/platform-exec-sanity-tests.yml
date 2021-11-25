@@ -44,7 +44,7 @@ jobs:
         include:
           - os: ubuntu-latest
             extension_type: '.deb'
-            cmds_to_execute: sudo dpkg -i twilio-${{ needs.get-tag.outputs.TAG_NAME }}.deb
+            cmds_to_execute: 'sudo dpkg -i twilio-${{ needs.get-tag.outputs.TAG_NAME }}.deb'
           - os: macos-latest
             extension_type: '.exe'
             cmds_to_execute: 'ls'
