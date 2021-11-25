@@ -78,11 +78,12 @@ jobs:
             ./twilio-${{ needs.get-tag.outputs.TAG_NAME }}.exe /S
             sleep 100
             setx path "%path%;C:\Program Files (x86)\twilio-cli\bin"
-      # $env:Path += ";C:\Program Files (x86)\twilio-cli\bin"
+
             $Env:Path
             cd C:\"Program Files (x86)"
             dir
             twilio --version
             node test/asserts/validate_tests.js
       # gh release list
+      #  $env:Path += ";C:\Program Files (x86)\twilio-cli\bin"
          
