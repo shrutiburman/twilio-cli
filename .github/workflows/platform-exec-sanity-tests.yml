@@ -1,6 +1,11 @@
 name: Platform Executable Sanity testing
 on:
   workflow_dispatch:
+  # workflow_run:
+  #    workflows: ["Platform Executable Release"]
+  #    branches: [main, platform_exec_test]
+  #    types:
+  #      - completed
   
 jobs:
   get-tag:
@@ -36,15 +41,15 @@ jobs:
             command_name: npx oclif-dev pack:macos
             download_cmd: sudo installer -pkg
     steps:
-       - name: Checkout cli repo
-         uses: actions/checkout@v2
-       - name: Install twilio cli through .deb
-         env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-         run: |
-          gh release download 2.31.0 --pattern '*.deb'
-          sudo dpkg -i twilio-2.31.0.deb
-          twilio --version
+      #  - name: Checkout cli repo
+      #    uses: actions/checkout@v2
+      #  - name: Install twilio cli through .deb
+      #    env:
+      #     GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      #    run: |
+      #     gh release download 2.31.0 --pattern '*.deb'
+      #     sudo dpkg -i twilio-2.31.0.deb
+      #     twilio --version
        - name: Perform sanity test on binaries
          run: |
            ${{matrix.download_cmd}} ${{matrix.asset_name}}
