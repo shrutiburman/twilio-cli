@@ -62,7 +62,7 @@ jobs:
             node test/asserts/validate_tests.js
   platform-exec-test-Windows:
      name: Test for Windows
-     runs-on: macos-latest
+     runs-on: windows-latest
      needs: [get-tag]  
      steps:
        - name: Checkout cli repo
@@ -72,13 +72,16 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
          run: |
             gh release download ${{ needs.get-tag.outputs.TAG_NAME }} --pattern '*.exe'
-            make install
+            ls
             iwr -useb get.scoop.sh | iex
             scoop install gsudo
             ./twilio-${{ needs.get-tag.outputs.TAG_NAME }}.exe /S
             sleep 100
-            $env:Path += ";C:\Program Files (x86)\twilio-cli\bin"
+            setx path "%path%;C:\Program Files (x86)\twilio-cli\bin"
+      # $env:Path += ";C:\Program Files (x86)\twilio-cli\bin"
             $Env:Path
+            cd C:\"Program Files (x86)"
+            dir
             twilio --version
             node test/asserts/validate_tests.js
       # gh release list
