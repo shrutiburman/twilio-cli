@@ -89,7 +89,6 @@ jobs:
         if: ${{steps.semantic-release.outputs.TAG_NAME != ''}}
         run: node .github/scripts/update-release.js
         env:
-          REPO_ACCESS_TOKEN: ${{ github.token }}
           TAG_NAME: ${{steps.semantic-release.outputs.TAG_NAME}}
           RELEASE_BODY: ${{github.event.inputs.change-log}}
           REPO_NAME: twilio/twilio-cli
