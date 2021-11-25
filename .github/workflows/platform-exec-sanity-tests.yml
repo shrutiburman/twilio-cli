@@ -43,16 +43,16 @@ jobs:
         include:
           - os: ubuntu-latest
             artifact_name: deb/twilio_${{ needs.get-tag.outputs.TAG_NAME }}-1_amd64.deb
-            asset_name: ${{ needs.get-tag.outputs.TAG_NAME }}
+            asset_name: '.deb'
             download_cmd: sudo dpkg -i
           - os: macos-latest
             artifact_name: win/twilio-v${{ needs.get-tag.outputs.TAG_NAME }}-x86.exe
-            asset_name: twilio-${{ needs.get-tag.outputs.TAG_NAME }}.exe
+            asset_name: '.exe'
             command_name: npx oclif-dev pack:win
             download_cmd: start
           - os: macos-latest
             artifact_name: macos/twilio-v${{ needs.get-tag.outputs.TAG_NAME }}.pkg
-            asset_name: twilio-${{ needs.get-tag.outputs.TAG_NAME }}.pkg
+            asset_name: '.pkg'
             command_name: npx oclif-dev pack:macos
             download_cmd: sudo installer -pkg
     steps:
@@ -62,8 +62,8 @@ jobs:
          env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
          run: |
-            gh release list
-            gh release download ${{matrix.asset_name}} --pattern '*.deb'
-           # ${{matrix.download_cmd}} ${{matrix.asset_name}}
-           # node src/asserts/validate_tests.js
+            gh release download ${{ needs.get-tag.outputs.TAG_NAME }} --pattern '*${{matrix.asset_name}}'
+            ${{matrix.download_cmd}} twilio-${{ needs.get-tag.outputs.TAG_NAME }}${{matrix.asset_name}}
+      # gh release list
+      # node src/asserts/validate_tests.js
          
