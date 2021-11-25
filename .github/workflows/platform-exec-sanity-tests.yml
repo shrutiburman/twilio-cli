@@ -1,6 +1,9 @@
 name: Platform Executable Sanity testing
 on:
-  workflow_dispatch:
+ push:
+  branches:
+   [platform_exec_test]
+  #workflow_dispatch:
   # workflow_run:
   #    workflows: ["Platform Executable Release"]
   #    branches: [main, platform_exec_test]
