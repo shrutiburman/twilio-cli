@@ -43,19 +43,18 @@ jobs:
      matrix:
         include:
           - os: ubuntu-latest
-            artifact_name: deb/twilio_${{ needs.get-tag.outputs.TAG_NAME }}-1_amd64.deb
-            asset_name: '.deb'
-            download_cmd: sudo dpkg -i
+            extension_type: '.deb'
+            cmds_to_execute: sudo dpkg -i ${{matrix.install_cmd}} twilio-${{ needs.get-tag.outputs.TAG_NAME }}${{matrix.extension_type}}
           - os: macos-latest
-            artifact_name: win/twilio-v${{ needs.get-tag.outputs.TAG_NAME }}-x86.exe
-            asset_name: '.exe'
-            command_name: npx oclif-dev pack:win
-            download_cmd: start
+            extension_type: '.exe'
+            cmds_to_execute: './twilio-${{ needs.get-tag.outputs.TAG_NAME }}${{matrix.extension_type}} /S
+                      sleep 100
+                      $env:Path += ";C:\Program Files (x86)\twilio-cli\bin"
+                      $Env:Path'
           - os: macos-latest
-            artifact_name: macos/twilio-v${{ needs.get-tag.outputs.TAG_NAME }}.pkg
-            asset_name: '.pkg'
+            extension_type: '.pkg'
             command_name: npx oclif-dev pack:macos
-            download_cmd: sudo installer -pkg
+            cmds_to_execute: sudo installer -pkg twilio-${{ needs.get-tag.outputs.TAG_NAME }}${{matrix.extension_type}}
     steps:
        - name: Checkout cli repo
          uses: actions/checkout@v2
@@ -63,10 +62,9 @@ jobs:
          env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
          run: |
-            gh release download ${{ needs.get-tag.outputs.TAG_NAME }} --pattern '*${{matrix.asset_name}}'
-            ${{matrix.download_cmd}} twilio-${{ needs.get-tag.outputs.TAG_NAME }}${{matrix.asset_name}}
+            gh release download ${{ needs.get-tag.outputs.TAG_NAME }} --pattern '*${{matrix.extension_type}}'
+            ${{matrix.cmds_to_execute}}
             twilio --version
-            node src/asserts/validate_tests.js
+            node test/asserts/validate_tests.js
       # gh release list
-      # node src/asserts/validate_tests.js
          
