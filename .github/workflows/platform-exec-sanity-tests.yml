@@ -64,6 +64,7 @@ jobs:
          run: |
             gh release download ${{ needs.get-tag.outputs.TAG_NAME }} --pattern '*${{matrix.asset_name}}'
             ${{matrix.download_cmd}} twilio-${{ needs.get-tag.outputs.TAG_NAME }}${{matrix.asset_name}}
+            twilio --version
       # gh release list
       # node src/asserts/validate_tests.js
          
