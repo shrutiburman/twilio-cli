@@ -43,16 +43,16 @@ jobs:
         include:
           - os: ubuntu-latest
             artifact_name: deb/twilio_${{ needs.get-tag.outputs.TAG_NAME }}-1_amd64.deb
-            asset_name: $twilio-${{ needs.get-tag.outputs.TAG_NAME }}.deb
+            asset_name: twilio-${{ needs.get-tag.outputs.TAG_NAME }}.deb
             download_cmd: sudo dpkg -i
           - os: macos-latest
             artifact_name: win/twilio-v${{ needs.get-tag.outputs.TAG_NAME }}-x86.exe
-            asset_name: $twilio-${{ needs.get-tag.outputs.TAG_NAME }}.exe
+            asset_name: twilio-${{ needs.get-tag.outputs.TAG_NAME }}.exe
             command_name: npx oclif-dev pack:win
             download_cmd: start
           - os: macos-latest
             artifact_name: macos/twilio-v${{ needs.get-tag.outputs.TAG_NAME }}.pkg
-            asset_name: $twilio-${{ needs.get-tag.outputs.TAG_NAME }}.pkg
+            asset_name: twilio-${{ needs.get-tag.outputs.TAG_NAME }}.pkg
             command_name: npx oclif-dev pack:macos
             download_cmd: sudo installer -pkg
     steps:
