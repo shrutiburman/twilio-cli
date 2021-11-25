@@ -44,17 +44,17 @@ jobs:
         include:
           - os: ubuntu-latest
             extension_type: '.deb'
-            cmds_to_execute: sudo dpkg -i ${{matrix.install_cmd}} twilio-${{ needs.get-tag.outputs.TAG_NAME }}${{matrix.extension_type}}
+            cmds_to_execute: sudo dpkg -i twilio-${{ needs.get-tag.outputs.TAG_NAME }}.deb
           - os: macos-latest
             extension_type: '.exe'
-            cmds_to_execute: './twilio-${{ needs.get-tag.outputs.TAG_NAME }}${{matrix.extension_type}} /S
+            cmds_to_execute: './twilio-${{ needs.get-tag.outputs.TAG_NAME }}.exe /S
                       sleep 100
                       $env:Path += ";C:\Program Files (x86)\twilio-cli\bin"
                       $Env:Path'
           - os: macos-latest
             extension_type: '.pkg'
             command_name: npx oclif-dev pack:macos
-            cmds_to_execute: sudo installer -pkg twilio-${{ needs.get-tag.outputs.TAG_NAME }}${{matrix.extension_type}}
+            cmds_to_execute: sudo installer -pkg twilio-${{ needs.get-tag.outputs.TAG_NAME }}.pkg
     steps:
        - name: Checkout cli repo
          uses: actions/checkout@v2
