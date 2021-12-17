@@ -1,3 +1,10 @@
+## [2.35.0](https://github.com/shrutiburman/twilio-cli/compare/2.34.0...2.35.0) (2021-12-17)
+
+
+### Library - Features
+
+* wait while testing execs ([a24379b](https://github.com/shrutiburman/twilio-cli/commit/a24379b09c7cac05405b837243d68aed6f9b8197))
+
 ## [2.34.0](https://github.com/shrutiburman/twilio-cli/compare/2.33.0...2.34.0) (2021-12-17)
 
 
