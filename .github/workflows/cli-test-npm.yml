@@ -27,7 +27,8 @@ jobs:
         uses: actions/checkout@v2
       -  name: Global - Testing installation of Twilio CLI (1)
          run: |
-          which twilio
+          which twilio > /dev/null 2>&1
+          if [$? == 0]; then echo "NO" else echo "Y"
           npm install -g twilio-cli@${{ github.event.inputs.version }}
           chmod +x ./.github/scripts/cmds-to-test.sh
           ./.github/scripts/cmds-to-test.sh
