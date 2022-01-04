@@ -31,7 +31,7 @@ jobs:
       -  name: Global - Testing installation of Twilio CLI (1)
          run: |
           npm install -g twilio-cli@${{ github.event.inputs.version }}
-          type twilio >/dev/null 2>&1 || { echo 'Twilio is not installed, proceeding.' ; twilio() { printf '%s\n' "Twilio is installed."; } ; }
+          type twilio >/dev/null 2>&1 || { echo 'Twilio is not installed, proceeding.' ; twilio() { echo 'Twilio is not installed, proceeding.' ; } ; }
           chmod +x ./.github/scripts/cmds-to-test.sh
           ./.github/scripts/cmds-to-test.sh
       
