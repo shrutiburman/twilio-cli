@@ -26,12 +26,12 @@ jobs:
       - name: Check for cached twilio 
         run: | 
          test -x twilio >/dev/null 2>&1 || { echo 'Twilio is not installed, proceeding.' ; }
-         test -x twilio >/dev/null 2>&1 && { echo 'Twilio is installed, proceeding.' ; }
       - name: Check Out Repo
         uses: actions/checkout@v2
       -  name: Global - Testing installation of Twilio CLI (1)
          run: |
           npm install -g twilio-cli@${{ github.event.inputs.version }}
+           test -x twilio >/dev/null 2>&1 || { echo 'Twilio is not installed, proceeding.' ; }
           chmod +x ./.github/scripts/cmds-to-test.sh
           ./.github/scripts/cmds-to-test.sh
       
