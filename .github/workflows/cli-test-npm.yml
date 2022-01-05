@@ -25,7 +25,8 @@ jobs:
          node-version: ${{ matrix.node-version }}
       - name: Check for cached twilio 
         run: | 
-         test -x twilio >/dev/null 2>&1 || { exit 1; }
+         if ! command -v figlet > /dev/null; then figlet() { printf '%sOkay' "$*"; }; fi
+         
       - name: Check Out Repo
         uses: actions/checkout@v2
       -  name: Global - Testing installation of Twilio CLI (1)
