@@ -25,7 +25,7 @@ jobs:
          node-version: ${{ matrix.node-version }}
       - name: Check for cached twilio 
         run: | 
-         if ! command -v twilio > /dev/null; then twilio() { printf '%sCLI is not installed, okay, good. ' "$*"; exit 1; } else echo "No bunzip available"; fi
+         if ! command -v twilio > /dev/null; then twilio() { printf '%sCLI is not installed, okay, good. ' "$*"; } else echo "NOT Cool"; exit 1; fi
          twilio --version
       - name: Check Out Repo
         uses: actions/checkout@v2
