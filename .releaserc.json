@@ -1,9 +1,9 @@
 {
   "branches": [
-    "main", "homebrew_formula_changes",
+    "main",
     {
-      "name": "release-feature-branch",
-      "prerelease": "rc"
+      "name": "homebrew_formula_changes",
+      "prerelease": "draft"
     }
   ],
   "plugins": [
