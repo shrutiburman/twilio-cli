@@ -23,6 +23,10 @@ jobs:
         uses: actions/setup-node@v2
         with:
          node-version: ${{ matrix.node-version }}
+      - name: Check for cached twilio installation 
+        run: | 
+         if ! command -v twilio > /dev/null; then twilio() { printf '%sCLI is not installed, all good. '; } else echo "CLI is installed already, Abort."; exit 1; fi
+         twilio --version
       - name: Check Out Repo
         uses: actions/checkout@v2
       -  name: Global - Testing installation of Twilio CLI (1)
@@ -33,8 +37,8 @@ jobs:
       
       - name: Global - Testing upgrade Twilio CLI (2)
         run: |
-         npm install -g twilio-cli@${{ github.event.inputs.version }}
-            npm install -g twilio-cli
+         npm install -g twilio-cli@latest
+            npm install -g twilio-cli@${{ github.event.inputs.version }}
             chmod +x ./.github/scripts/cmds-to-test.sh
             ./.github/scripts/cmds-to-test.sh
   

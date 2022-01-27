@@ -66,7 +66,7 @@ jobs:
         FILE: ${{steps.download.outputs.download-path}}\${{env.FORMULA_NAME}}-v${{ needs.get-tag.outputs.TAG_NAME }}-x86.exe
         ASSET_NAME: ${{env.FORMULA_NAME}}-${{ needs.get-tag.outputs.TAG_NAME }}.exe
         TAG_NAME: ${{ needs.get-tag.outputs.TAG_NAME }}
-        REPO_NAME: twilio/twilio-cli
+        REPO_NAME: shrutiburman/twilio-cli
 
   notify-complete-fail:
     if: ${{ failure() || cancelled() }}
