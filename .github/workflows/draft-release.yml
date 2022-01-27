@@ -1,20 +1,22 @@
 name: Cli Draft Release
 on:
-  workflow_dispatch:
-    inputs:
-      change-log:
-        description: 'Open API Changelog.'
-      version-type:
-        description: 'Version to upgrade, Major: 0, Minor:1, Patch: 2'
-      homebrew-branch:
-        description: 'HomeBrew branch name'
-        default: main
-      homebrew-prerelease:
-        description: 'HomeBrew prerelease'
-        default: 'true'
-      draft-release:
-        description: 'Draft-release flag (true/false)'
-        default: 'true'
+ push:
+     branches: [ fix_sanity_tests_226 ]
+  # workflow_dispatch:
+  #   inputs:
+  #     change-log:
+  #       description: 'Open API Changelog.'
+  #     version-type:
+  #       description: 'Version to upgrade, Major: 0, Minor:1, Patch: 2'
+  #     homebrew-branch:
+  #       description: 'HomeBrew branch name'
+  #       default: main
+  #     homebrew-prerelease:
+  #       description: 'HomeBrew prerelease'
+  #       default: 'true'
+  #     draft-release:
+  #       description: 'Draft-release flag (true/false)'
+  #       default: 'true'
 
 jobs:
   test:
