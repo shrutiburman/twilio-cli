@@ -1,7 +1,5 @@
 name: Cli Draft Release
 on:
- push:
-     branches: [ fix_sanity_tests_226 ]
  workflow_dispatch:
     inputs:
       change-log:
