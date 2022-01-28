@@ -77,7 +77,7 @@ jobs:
           BRANCH_NAME: ${{steps.extract_branch.outputs.branch}}
           INPUTS: '{ "version": "${{ steps.semantic-release-draft.outputs.TAG_NAME }}" }'
       - name: Update release
-        if: ${{steps.semantic-release.outputs.TAG_NAME != ''}}
+        if: ${{steps.semantic-release-draft.outputs.TAG_NAME != ''}}
         run: node .github/scripts/update-release.js
         env:
           RELEASE_BODY: ${{github.event.inputs.change-log}}
@@ -111,7 +111,7 @@ jobs:
         id: extract_branch
         run: echo "##[set-output name=branch;]$(echo ${GITHUB_REF#refs/heads/})"
       - name: Invoke Oclif workflow for draft release
-        if: ${{needs.release.outputs.tag-name != '' && github.event.inputs.draft-release == 'true'}}
+        if: ${{needs.release.outputs.draft-tag-name != '' && github.event.inputs.draft-release == 'true'}}
         run: node .github/scripts/trigger-workflow.js
         env:
           WORKFLOW_NAME: 'oclif-release.yml'
