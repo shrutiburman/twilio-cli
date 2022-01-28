@@ -1,3 +1,15 @@
+## [3.0.0-draft.2](https://github.com/shrutiburman/twilio-cli/compare/3.0.0-draft.1...3.0.0-draft.2) (2022-01-28)
+
+
+### Library - Fixes
+
+* Removed on push trigger from draft release ([05af6f2](https://github.com/shrutiburman/twilio-cli/commit/05af6f2fe32711cf22f62563a5e6d1c63385b580))
+
+
+### Library - Chores
+
+* default formula ([07ee558](https://github.com/shrutiburman/twilio-cli/commit/07ee558e881da821c73576c74c3d7231857207a2))
+
 ## [3.0.0-draft.1](https://github.com/shrutiburman/twilio-cli/compare/2.33.0...3.0.0-draft.1) (2022-01-27)
 
 
