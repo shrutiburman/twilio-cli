@@ -25,13 +25,13 @@ jobs:
         uses: actions/checkout@v2
       -  name: Global - Testing installation of Twilio CLI (1)
          run: |
-          brew tap twilio/brew && brew install twilio
+          brew tap twilio/brew && brew install twiliodraft
           chmod +x ./.github/scripts/cmds-to-test.sh
           ./.github/scripts/cmds-to-test.sh
       - name: Global - Testing upgrade Twilio CLI (2)
         run: |
           brew tap twilio/brew && brew install twilio
-          brew upgrade twilio
+          brew upgrade twiliodraft
           chmod +x ./.github/scripts/cmds-to-test.sh
           ./.github/scripts/cmds-to-test.sh
           
