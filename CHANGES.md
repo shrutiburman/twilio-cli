@@ -3,6 +3,18 @@
 
 ### Library - Chores
 
+* **release:** set `package.json` to 3.0.0-draft.3 [skip ci] ([47e77d5](https://github.com/shrutiburman/twilio-cli/commit/47e77d506d3f7463960c10a60c960d16958f6645))
+* adding update release missing tag ([d4c18c5](https://github.com/shrutiburman/twilio-cli/commit/d4c18c58cae8c65dedc4cf743bd3499654605a79))
+* Enabled platform execs ([f387695](https://github.com/shrutiburman/twilio-cli/commit/f38769575039ad260f396e1828ea1f5dbb5d59e4))
+* Enabling platform execs now ([d27cf7a](https://github.com/shrutiburman/twilio-cli/commit/d27cf7a09feb91420066cfd3ced1edcf8b713217))
+* update input tag condition ([8599b5f](https://github.com/shrutiburman/twilio-cli/commit/8599b5fd47bbf7ac02c3d12960b5818d7d21e649))
+* updated the repo owner ([1bc7bd7](https://github.com/shrutiburman/twilio-cli/commit/1bc7bd768324696e8940db646f767fda216ab65f))
+
+## [3.0.0-draft.3](https://github.com/shrutiburman/twilio-cli/compare/3.0.0-draft.2...3.0.0-draft.3) (2022-01-31)
+
+
+### Library - Chores
+
 * adding update release missing tag ([d4c18c5](https://github.com/shrutiburman/twilio-cli/commit/d4c18c58cae8c65dedc4cf743bd3499654605a79))
 * Enabled platform execs ([f387695](https://github.com/shrutiburman/twilio-cli/commit/f38769575039ad260f396e1828ea1f5dbb5d59e4))
 * Enabling platform execs now ([d27cf7a](https://github.com/shrutiburman/twilio-cli/commit/d27cf7a09feb91420066cfd3ced1edcf8b713217))
