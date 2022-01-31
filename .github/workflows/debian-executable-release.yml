@@ -21,7 +21,7 @@ jobs:
           sudo $(npm bin)/oclif-dev pack:deb
           cd dist/deb
           ls
-          mv ${{ github.event.inputs.formula }}_$(awk -F- '{print $1}' <<< ${{ steps.get-tag.outputs.TAG_NAME }}-1_amd64.deb ${{ github.event.inputs.formula }}_${{ steps.get-tag.outputs.TAG_NAME }}-1_amd64.deb
+          mv ${{ github.event.inputs.formula }}_$(awk -F- '{print $1}' <<< ${{ steps.get-tag.outputs.TAG_NAME }})-1_amd64.deb ${{ github.event.inputs.formula }}_${{ steps.get-tag.outputs.TAG_NAME }}-1_amd64.deb
           echo "Here:"
           ls
 
