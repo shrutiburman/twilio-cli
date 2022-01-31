@@ -19,6 +19,9 @@ jobs:
       - run: |
           make install
           sudo $(npm bin)/oclif-dev pack:deb
+          cd dist/deb
+          ls
+          
       - name: Upload binaries to release
         run: node .github/scripts/update-platform-executables.js
         env:
