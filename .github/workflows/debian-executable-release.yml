@@ -21,6 +21,7 @@ jobs:
           sudo $(npm bin)/oclif-dev pack:deb
           cd dist/deb
           ls
+          echo "$(cut -d'_' -f1 <<< ${{ steps.get-tag.outputs.TAG_NAME }} )"
           
       - name: Upload binaries to release
         run: node .github/scripts/update-platform-executables.js
