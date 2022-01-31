@@ -32,7 +32,6 @@ jobs:
         brew install makensis
         npx oclif-dev pack:win
         cd dist/win
-        sudo mv ${{env.FORMULA_NAME}}-$(awk -F- '{print $1}' <<< ${{ needs.get-tag.outputs.TAG_NAME }}).exe ${{env.FORMULA_NAME}}-${{ needs.get-tag.outputs.TAG_NAME }}.exe
         ls
         
      - name: upload artifact
