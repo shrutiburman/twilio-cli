@@ -21,8 +21,10 @@ jobs:
           sudo $(npm bin)/oclif-dev pack:deb
           cd dist/deb
           ls
-          echo "$(cut -d'_' -f1 <<< ${{ steps.get-tag.outputs.TAG_NAME }} )"
-          
+          mv $(awk -F_ '{print $1}' <<< ${{ steps.get-tag.outputs.TAG_NAME }})-1_amd64.deb ${{ steps.get-tag.outputs.TAG_NAME }}-1_amd64.deb
+          echo "Here:"
+          ls
+
       - name: Upload binaries to release
         run: node .github/scripts/update-platform-executables.js
         env:
