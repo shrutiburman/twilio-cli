@@ -31,7 +31,7 @@ jobs:
         make install
         brew install makensis
         npx oclif-dev pack:win
-        echo ${{ github.sha }}
+        echo ${{ github.sha::7 }}
         cd dist/win
         ls
 
