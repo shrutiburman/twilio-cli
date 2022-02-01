@@ -28,10 +28,11 @@ jobs:
           brew tap twilio/brew && brew install twiliodraft
           chmod +x ./.github/scripts/cmds-to-test.sh
           ./.github/scripts/cmds-to-test.sh
-      - name: Global - Testing upgrade Twilio CLI (2)
-        run: |
-          brew tap twilio/brew && brew install twilio
-          brew upgrade twiliodraft
-          chmod +x ./.github/scripts/cmds-to-test.sh
-          ./.github/scripts/cmds-to-test.sh
+      # Todo: since its the first draft release, cannot upgrade with the formula
+      # - name: Global - Testing upgrade Twilio CLI (2)
+      #   run: |
+      #     brew tap twilio/brew && brew install twilio
+      #     brew upgrade twiliodraft
+      #     chmod +x ./.github/scripts/cmds-to-test.sh
+      #     ./.github/scripts/cmds-to-test.sh
           
