@@ -36,12 +36,7 @@ jobs:
         npx oclif-dev pack:win
         echo ${{ github.sha }}
         cd dist/win
-        ls
         sudo mv ${{env.FORMULA_NAME}}-v${{ needs.get-tag.outputs.TAG_NAME }}.${{ steps.get-sha.outputs.SHA_SHORT }}-x86.exe ${{env.FORMULA_NAME}}-v${{ needs.get-tag.outputs.TAG_NAME }}-x86.exe
-        echo ${{ steps.get-sha.outputs.SHA_SHORT }}
-        echo "Here:" 
-        ls
-
 
      - name: upload artifact
        uses: actions/upload-artifact@v2
