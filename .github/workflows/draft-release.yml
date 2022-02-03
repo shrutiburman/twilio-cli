@@ -115,9 +115,9 @@ jobs:
         id: extract_branch
         run: echo "##[set-output name=branch;]$(echo ${GITHUB_REF#refs/heads/})"
       - name: Wait for draft release to succeed
-        uses: lewagon/wait-on-check-action@v1.0.0
+        uses: lewagon/wait-on-check-action@master
         with:
-          ref: ${{ github.ref }}
+          ref: ${{ github.sha }}
           check-name: 'Oclif Release'
           repo-token: ${{ secrets.GITHUB_TOKEN }}
           wait-interval: 10
