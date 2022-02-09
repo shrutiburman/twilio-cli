@@ -96,21 +96,32 @@ jobs:
   #           ls
   #           twilio --version
   #           twilio api --help
-  platform-exec-test-Docker:
-     name: Test for Docker
-     runs-on: ubuntu-latest
-     steps:
-       - name: Check out code
-         uses: actions/checkout@v1
-       - name: Login to Docker Registry
-         run: docker login -u "$DOCKER_USERNAME" -p "$DOCKER_PASSWORD"
-         env:
-          DOCKER_USERNAME: ${{ secrets.DOCKER_USERNAME }}
-          DOCKER_PASSWORD: ${{ secrets.DOCKER_PASSWORD }}
-       - name: Start env
-         run: docker-compose up
-       - name: Run tests
-         run:
-             echo "Running Script"
-             docker run -it --rm twilio/twilio-cli twilio --version​
+  # platform-exec-test-Docker:
+  #    name: Test for Docker
+  #    runs-on: ubuntu-latest
+  #    steps:
+  #      - name: Check out code
+  #        uses: actions/checkout@v1
+  #      - name: Login to Docker Registry
+  #        run: docker login -u "$DOCKER_USERNAME" -p "$DOCKER_PASSWORD"
+  #        env:
+  #         DOCKER_USERNAME: ${{ secrets.DOCKER_USERNAME }}
+  #         DOCKER_PASSWORD: ${{ secrets.DOCKER_PASSWORD }}
+  #      - name: Start env
+  #        run: docker-compose up
+  #      - name: Run tests
+  #        run:
+  #            echo "Running Script"
+  #            docker run -it --rm twilio/twilio-cli twilio --version​
+  test:
+    name: Docker test
+    runs-on: ubuntu-18.04
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: example.com docker registry login
+        run: echo "${{ secrets.DOCKER_HUB_ACCESS_TOKEN }}" | docker login -u "${{ secrets.DOCKER_HUB_USERNAME }}" --password-stdin
+      - name: run backend tests using example.com/my-image
+        run: |
+          docker run -it --rm twilio/twilio-cli twilio --version​
          
