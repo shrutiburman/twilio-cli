@@ -45,6 +45,7 @@ notarize_and_staple() {
 
 pack_macos() {
     # import_certificate
+    echo "$(git rev-parse --short HEAD)"
     npx oclif-dev pack:macos
     ls
     # notarize_and_staple
