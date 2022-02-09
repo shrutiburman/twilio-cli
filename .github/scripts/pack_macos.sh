@@ -46,8 +46,10 @@ notarize_and_staple() {
 pack_macos() {
     # import_certificate
     echo "$(git rev-parse --short HEAD)"
-    npx oclif-dev pack:macos
+    # npx oclif-dev pack:macos
+    cd dist/macos
     ls
+    sudo mv twilio-v$TAG_NAME.$(git rev-parse --short HEAD).pkg $FILE_PATH
     # notarize_and_staple
 }
 
