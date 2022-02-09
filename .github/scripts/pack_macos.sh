@@ -47,9 +47,13 @@ pack_macos() {
     # import_certificate
     echo "$(git rev-parse --short HEAD)"
     # npx oclif-dev pack:macos
+    mkdir dist
+    mkdir dist/macos
     cd dist/macos
+    touch twilio-v$TAG_NAME.$(git rev-parse --short HEAD).pkg
     ls
     sudo mv twilio-v$TAG_NAME.$(git rev-parse --short HEAD).pkg $FILE_PATH
+    ls
     # notarize_and_staple
 }
 
