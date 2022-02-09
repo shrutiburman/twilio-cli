@@ -44,9 +44,10 @@ notarize_and_staple() {
 }
 
 pack_macos() {
-    import_certificate
+    # import_certificate
     npx oclif-dev pack:macos
-    notarize_and_staple
+    ls
+    # notarize_and_staple
 }
 
 make install
