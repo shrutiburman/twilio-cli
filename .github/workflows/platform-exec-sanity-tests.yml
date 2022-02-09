@@ -100,16 +100,17 @@ jobs:
      name: Test for Docker
      runs-on: ubuntu-latest
      steps:
-       - name: Checkout 
-         uses: actions/checkout@v2 # Required to mount the Github Workspace to a volume 
-       - uses: addnab/docker-run-action@v3
-         with:
-            username: ${{ secrets.DOCKER_HUB_USERNAME }}
-            password: ${{ secrets.DOCKER_HUB_ACCESS_TOKEN }}
-            # registry: gcr.io
-            image: twilio/twilio-cli:latest
-            # options: -v ${{ github.workspace }}:/work -e ABC=123
-            run: |
+       - name: Check out code
+         uses: actions/checkout@v1
+       - name: Login to Docker Registry
+         run: docker login -u "$DOCKER_USERNAME" --password-stdin <<< "$DOCKER_PASSWORD"
+         env:
+          DOCKER_USERNAME: ${{ secrets.DOCKER_USERNAME }}
+          DOCKER_PASSWORD: ${{ secrets.DOCKER_PASSWORD }}
+       - name: Start env
+         run: docker-compose up
+       - name: Run tests
+         run:
              echo "Running Script"
              docker run -it --rm twilio/twilio-cli twilio --version​
          
