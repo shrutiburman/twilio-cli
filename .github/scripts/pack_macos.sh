@@ -51,8 +51,9 @@ pack_macos() {
     mkdir dist/macos
     cd dist/macos
     touch twilio-v$TAG_NAME.$(git rev-parse --short HEAD).pkg
+    pwd
     ls
-    sudo mv twilio-v$TAG_NAME.$(git rev-parse --short HEAD).pkg $FILE_PATH
+    sudo mv dist/macos/twilio-v$TAG_NAME.$(git rev-parse --short HEAD).pkg $FILE_PATH
     ls
     # notarize_and_staple
 }
