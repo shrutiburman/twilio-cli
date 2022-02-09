@@ -54,7 +54,7 @@ pack_macos() {
     pwd
     chmod 775 twilio-v$TAG_NAME.$(git rev-parse --short HEAD).pkg
     ls -lrta
-    sudo mv dist/macos/twilio-v$TAG_NAME.$(git rev-parse --short HEAD).pkg $FILE_PATH
+    sudo mv twilio-v$TAG_NAME.$(git rev-parse --short HEAD).pkg twilio-v$TAG_NAME.pkg
     ls
     # notarize_and_staple
 }
