@@ -131,6 +131,6 @@ jobs:
       - name: Check running containers
         run: docker ps -a
       - name: Run twilio cli image
-        run: docker run -it --rm twilio/twilio-cli twilio --version​
+        run: docker run --rm twilio/twilio-cli twilio --version​
 
          
