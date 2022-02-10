@@ -132,13 +132,7 @@ jobs:
         run: docker ps -a
       - name: Run twilio cli image
         run: |
-         docker run --rm twilio/twilio-cli twilio api:accounts --help
+         docker run --rm twilio/twilio-cli /bin/bash -c "twilio api:accounts --help && twilio"
 
-  build:
-    container:
-      image: twilio/twilio-cli:latest
-      credentials:
-        username: ${{ secrets.DOCKER_HUB_USERNAME }}
-        password: ${{ secrets.DOCKER_HUB_ACCESS_TOKEN }}
 
          
