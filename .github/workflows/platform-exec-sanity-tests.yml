@@ -9,6 +9,16 @@ on:
       - completed
  
 jobs:
+  ci:
+     runs-on: ubuntu-latest
+     container:
+       image: node
+     steps:
+       - uses: actions/checkout@v1
+       - name: Install & Tests
+         run: |
+           npm install
+           npm test
   # get-branch:
   #   name: Get Current Branch Name
   #   runs-on: ubuntu-latest
@@ -121,9 +131,9 @@ jobs:
       - name: Check running containers
         run: docker ps -a
       - name: Run twilio cli image
-        run: | 
-        docker run --rm twilio/twilio-cli 
-        twilio api:accounts --help
-        twilio
+        run: |
+         docker run --rm twilio/twilio-cli
+         twilio api:accounts --help
+         twilio
 
          
