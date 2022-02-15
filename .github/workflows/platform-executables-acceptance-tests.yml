@@ -79,6 +79,7 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
+          iwr -useb get.scoop.sh | iex
           scoop install twilio
           twilio --version
           twilio api --help
