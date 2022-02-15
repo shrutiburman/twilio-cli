@@ -40,31 +40,41 @@ jobs:
           git fetch --prune --unshallow
           echo "::set-output name=TAG_NAME::$(git describe --tags $(git rev-list --tags --max-count=1))"
 
-  wait-for-oclif-releases:
-    name: Wait for oclif platform executables Release to complete
-    runs-on: ubuntu-latest
+  # wait-for-oclif-releases:
+  #   name: Wait for oclif platform executables Release to complete
+  #   runs-on: ubuntu-latest
+  #   continue-on-error: true
+  #   needs: [ get-branch, get-tag ]
+  #   outputs:
+  #     FAILURE_TAG_OCLIF: ${{ steps.failure_oclif.outputs.FAILURE_TAG_OCLIF }}
+  #   steps:
+  #     - name: Checkout cli repo
+  #       uses: actions/checkout@v2
+  #     # - name: Wait for Oclif Release
+  #     #   run: source .github/scripts/trigger-and-wait.sh
+  #     #   env:
+  #     #     INPUT_WORKFLOW_FILE_NAME: oclif-release.yml
+  #     #     INPUT_REF: ${{ needs.get-branch.outputs.branch }}
+  #     # - name: Perform install and test on deb binaries
+  #     #   id: oclif_acceptance_run
+  #     #   env:
+  #     #     GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+  #     #   run: |
+  #     #     gh release download ${{ needs.get-tag.outputs.TAG_NAME }} --pattern '*.deb'
+  #     #     sudo dpkg -i twilio-${{ needs.get-tag.outputs.TAG_NAME }}.deb
+  #     #     ls
+  #     #     twilio --version
+  #     #     twilio api --help
+  wait-for-scoop-releases:
+    name: Do scoop testing
+    runs-on: windows-latest
     continue-on-error: true
     needs: [ get-branch, get-tag ]
-    outputs:
-      FAILURE_TAG_OCLIF: ${{ steps.failure_oclif.outputs.FAILURE_TAG_OCLIF }}
+    # outputs:
+    #   FAILURE_TAG_SCOOP: ${{ steps.failure_oclif.outputs.FAILURE_TAG_SCOOP }}
     steps:
       - name: Checkout cli repo
         uses: actions/checkout@v2
-      # - name: Wait for Oclif Release
-      #   run: source .github/scripts/trigger-and-wait.sh
-      #   env:
-      #     INPUT_WORKFLOW_FILE_NAME: oclif-release.yml
-      #     INPUT_REF: ${{ needs.get-branch.outputs.branch }}
-      - name: Perform install and test on deb binaries
-        id: oclif_acceptance_run
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        run: |
-          gh release download ${{ needs.get-tag.outputs.TAG_NAME }} --pattern '*.deb'
-          sudo dpkg -i twilio-${{ needs.get-tag.outputs.TAG_NAME }}.deb
-          ls
-          twilio --version
-          twilio api --help
       - name: Perform install and test scoop installations
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
@@ -72,7 +82,7 @@ jobs:
           scoop install twilio
           twilio --version
           twilio api --help
-      - name: setup oclif failure output
+      - name: setup scoop failure output
         if: failure() || cancelled()
         id: failure_oclif
         run: echo '::set-output name=FAILURE_TAG_OCLIF::true'
