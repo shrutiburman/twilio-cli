@@ -7,7 +7,7 @@ BuildArch:      x86_64
 Buildroot:      %{_tmppath}/%{name}-%{version}-root
 
 License:        MIT
-URL:           https://github.com/twilio/twilio-cli
+URL:           https://github.com/shrutiburman/twilio-cli
 Source:        %{name}-v%{version}-linux-x64.tar.gz
 
 #BuildRequires:
