@@ -34,7 +34,7 @@ jobs:
     needs: [test]
     steps:
       - name: Checkout cli
-        uses: actions/checkout@v2
+        uses: actions/checkout@v3
         with:
           token: ${{ secrets.REPO_ACCESS_TOKEN }}
       - name: Update Changelog
