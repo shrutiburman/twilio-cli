@@ -49,8 +49,9 @@ jobs:
     steps:
       - name: Checkout cli
         uses: actions/checkout@v2
-        with:
-          persist-credentials: false
+      - run: |
+          git pull
+          make install
       - name: Run git and npm update
         run: |
           git pull
