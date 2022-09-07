@@ -1,3 +1,15 @@
+### [4.1.3](https://github.com/shrutiburman/twilio-cli/compare/4.1.2...4.1.3) (2022-09-07)
+
+
+### Library - Chores
+
+* next release with executables ([d9fcc07](https://github.com/shrutiburman/twilio-cli/commit/d9fcc075b731c403344ba83d1692ccc27f7a8457))
+
+
+### Library - Fixes
+
+* Updated all oclif-dev to oclif as dev-cli is archieved now. BREAKING CHANGE ([7506e92](https://github.com/shrutiburman/twilio-cli/commit/7506e9279d486454c13f70895221c4085ef35908))
+
 ### [4.1.2](https://github.com/shrutiburman/twilio-cli/compare/4.1.1...4.1.2) (2022-09-07)
 
 
