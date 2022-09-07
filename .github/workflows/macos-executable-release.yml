@@ -22,7 +22,10 @@ jobs:
     runs-on: macos-11
     steps:
     - uses: actions/checkout@v2
-    - run: source .github/scripts/pack_macos.sh
+    - run: |
+        source .github/scripts/pack_macos.sh
+        cd dist/macos
+        ls
       env:
         OSX_INSTALLER_CERT_BASE64: ${{ secrets.OSX_INSTALLER_CERT_BASE64}}
         OSX_INSTALLER_CERT_PASSWORD: ${{ secrets.OSX_INSTALLER_CERT_PASSWORD}}

@@ -21,11 +21,16 @@ jobs:
     needs: [get-tag]
     steps:
      - uses: actions/checkout@v2
+     - name: Getting last sha
+       id: get-sha
+       run: echo "::set-output name=SHA_SHORT::$(git rev-parse --short HEAD)"
      - run: |
         make install
         brew install makensis
         npx oclif pack:win
-        cd dist/win/
+        cd dist/win
+        sudo mv ${{env.FORMULA_NAME}}-v${{ needs.get-tag.outputs.TAG_NAME }}.${{ steps.get-sha.outputs.SHA_SHORT }}-x86.exe ${{env.FORMULA_NAME}}-v${{ needs.get-tag.outputs.TAG_NAME }}-x86.exe
+
         ls
      - name: upload artifact
        uses: actions/upload-artifact@v2
