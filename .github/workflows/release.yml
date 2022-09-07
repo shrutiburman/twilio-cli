@@ -156,7 +156,7 @@ jobs:
         id: extract_branch
         run: echo "##[set-output name=branch;]$(echo ${GITHUB_REF#refs/heads/})"
       - name: Invoke platform executable workflow
-        if: ${{needs.release.outputs.tag-name != '' && steps.extract_branch.outputs.branch == 'main'}}
+        if: ${{needs.release.outputs.tag-name != ''}}
         run: node .github/scripts/trigger-workflow.js
         env:
           WORKFLOW_NAME: ${{ matrix.executable_workflow }}
