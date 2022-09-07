@@ -1,3 +1,10 @@
+### [4.2.1](https://github.com/shrutiburman/twilio-cli/compare/4.2.0...4.2.1) (2022-09-07)
+
+
+### Library - Chores
+
+* dummy commit to pass commit-analyzer ([66e382c](https://github.com/shrutiburman/twilio-cli/commit/66e382c78d021422e77ca5c068075d84348e9fc9))
+
 ## [4.2.0](https://github.com/shrutiburman/twilio-cli/compare/4.1.3...4.2.0) (2022-09-07)
 
 
