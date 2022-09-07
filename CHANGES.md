@@ -1,3 +1,11 @@
+### [4.1.2](https://github.com/shrutiburman/twilio-cli/compare/4.1.1...4.1.2) (2022-09-07)
+
+
+### Library - Chores
+
+* improve scoop workflow now we are invoking scoop homebrew and oclif BREAKING CHANGE trial ([3eec969](https://github.com/shrutiburman/twilio-cli/commit/3eec96916db6d696ee565d05a73178c71ec9f996))
+* update oclif-dev command to oclif ([5cbf52f](https://github.com/shrutiburman/twilio-cli/commit/5cbf52fe840aba18c5c077fb007a7d2960d1c1b7))
+
 ### [4.1.1](https://github.com/shrutiburman/twilio-cli/compare/4.1.0...4.1.1) (2022-09-07)
 
 
