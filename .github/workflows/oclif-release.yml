@@ -44,7 +44,7 @@ jobs:
           aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
           aws-session-token: ${{ secrets.AWS_SESSION_TOKEN }}
           aws-region: us-east-1
-      - name: Publish assests to s3 and calculate sha of oclif dev pack
+      - name: Publish assests to s3 and calculate sha of oclif dev pack yes
         id: sha256
         if: ${{matrix.publish == 'homebrew'}}
         run: |
