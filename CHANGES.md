@@ -1,3 +1,10 @@
+## [4.2.0](https://github.com/shrutiburman/twilio-cli/compare/4.1.3...4.2.0) (2022-09-07)
+
+
+### Library - Features
+
+* removed condition for invoking, non-main branch ([f4dce4a](https://github.com/shrutiburman/twilio-cli/commit/f4dce4a8230c62ed684e9e09e76754fb09e56249))
+
 ### [4.1.3](https://github.com/shrutiburman/twilio-cli/compare/4.1.2...4.1.3) (2022-09-07)
 
 
