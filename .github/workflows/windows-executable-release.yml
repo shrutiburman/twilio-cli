@@ -25,6 +25,8 @@ jobs:
         make install
         brew install makensis
         npx oclif pack:win
+        cd dist/win/
+        ls
      - name: upload artifact
        uses: actions/upload-artifact@v2
        with:

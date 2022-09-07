@@ -19,7 +19,9 @@ jobs:
       - run: |
           make install
           sudo chown -R 1001:121 "/root/.npm"
-          sudo $(npm bin)/oclif-dev pack:deb
+          sudo $(npm bin)/oclif pack:deb
+          cd dist/deb/
+          ls
       - name: Upload binaries to release
         run: node .github/scripts/update-platform-executables.js
         env:
