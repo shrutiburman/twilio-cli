@@ -322,30 +322,30 @@ jobs:
         id: failure_scoop
         run: echo '::set-output name=FAILURE_TAG_SCOOP::true'
 
-  notify-complete-fail:
-    needs: [wait-for-brew-releases, wait-for-windows-releases, wait-for-debian-releases, wait-for-macos-releases, test-scoop-release, test-npm-releases, test-apt-release]
-    name: Notify Release Failed
-    runs-on: ubuntu-latest
-    if: ${{ contains( needs.*.outputs.ACCEPTANCE_FAILURE_TAG, 'true' ) }}
-    steps:
-      - uses: actions/checkout@v2
-      - name: Slack Notification
-        uses: rtCamp/action-slack-notify@v2
-        env:
-          SLACK_WEBHOOK: ${{ secrets.ALERT_SLACK_WEB_HOOK }}
-          SLACK_COLOR: "#ff3333"
-          SLACK_USERNAME: CLI Release Bot
-          SLACK_ICON_EMOJI: ":ship:"
-          SLACK_TITLE: "Twilio Cli"
-          SLACK_MESSAGE: 'CLI acceptance workflow Failed'
-      - name: Fail in case all jobs failed
-        if: |
-          ${{ ( needs.test-npm-releases.outputs.ACCEPTANCE_FAILURE_TAG == 'true' ) && 
-          ( needs.wait-for-brew-releases.outputs.ACCEPTANCE_FAILURE_TAG == 'true' ) && 
-          ( needs.wait-for-macos-releases.outputs.ACCEPTANCE_FAILURE_TAG == 'true' ) && 
-          ( needs.wait-for-windows-releases.outputs.ACCEPTANCE_FAILURE_TAG == 'true' ) && 
-          ( needs.wait-for-debian-releases.outputs.ACCEPTANCE_FAILURE_TAG == 'true') && 
-          ( needs.test-scoop-release.outputs.ACCEPTANCE_FAILURE_TAG == 'true')}}
-          ( needs.test-apt-release.outputs.ACCEPTANCE_FAILURE_TAG} == 'true')}}
-        run:
-          exit 1
+  # notify-complete-fail:
+  #   needs: [wait-for-brew-releases, wait-for-windows-releases, wait-for-debian-releases, wait-for-macos-releases, test-scoop-release, test-npm-releases, test-apt-release]
+  #   name: Notify Release Failed
+  #   runs-on: ubuntu-latest
+  #   if: ${{ contains( needs.*.outputs.ACCEPTANCE_FAILURE_TAG, 'true' ) }}
+  #   steps:
+  #     - uses: actions/checkout@v2
+  #     - name: Slack Notification
+  #       uses: rtCamp/action-slack-notify@v2
+  #       env:
+  #         SLACK_WEBHOOK: ${{ secrets.ALERT_SLACK_WEB_HOOK }}
+  #         SLACK_COLOR: "#ff3333"
+  #         SLACK_USERNAME: CLI Release Bot
+  #         SLACK_ICON_EMOJI: ":ship:"
+  #         SLACK_TITLE: "Twilio Cli"
+  #         SLACK_MESSAGE: 'CLI acceptance workflow Failed'
+  #     - name: Fail in case all jobs failed
+  #       if: |
+  #         ${{ ( needs.test-npm-releases.outputs.ACCEPTANCE_FAILURE_TAG == 'true' ) && 
+  #         ( needs.wait-for-brew-releases.outputs.ACCEPTANCE_FAILURE_TAG == 'true' ) && 
+  #         ( needs.wait-for-macos-releases.outputs.ACCEPTANCE_FAILURE_TAG == 'true' ) && 
+  #         ( needs.wait-for-windows-releases.outputs.ACCEPTANCE_FAILURE_TAG == 'true' ) && 
+  #         ( needs.wait-for-debian-releases.outputs.ACCEPTANCE_FAILURE_TAG == 'true') && 
+  #         ( needs.test-scoop-release.outputs.ACCEPTANCE_FAILURE_TAG == 'true')}}
+  #         ( needs.test-apt-release.outputs.ACCEPTANCE_FAILURE_TAG} == 'true')}}
+  #       run:
+  #         exit 1
