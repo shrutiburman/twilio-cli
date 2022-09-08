@@ -21,19 +21,16 @@ jobs:
          echo "::set-output name=TAG_NAME::$(git describe --tags $(git rev-list --tags --max-count=1))"
       - run: |
           make install
-          npm install -g @oclif/dev-cli
-          sudo chown -R 1001:121 "/root/.npm"
-          sudo $(npm bin)/oclif-dev pack:deb
+          sudo $(npm bin)/oclif pack:deb
           cd dist/deb/
           ls
-          sudo mv ${{ github.event.inputs.formula }}_${{ steps.get-tag.outputs.TAG_NAME }}.${{ steps.get-sha.outputs.SHA_SHORT }}-1_amd64.deb ${{ github.event.inputs.formula }}_${{ steps.get-tag.outputs.TAG_NAME }}-1_amd64.deb
-          ls
+# sudo mv ${{ github.event.inputs.formula }}_${{ steps.get-tag.outputs.TAG_NAME }}.${{ steps.get-sha.outputs.SHA_SHORT }}-1_amd64.deb ${{ github.event.inputs.formula }}_${{ steps.get-tag.outputs.TAG_NAME }}-1_amd64.deb
       - name: Upload binaries to release
         run: node .github/scripts/update-platform-executables.js
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          FILE: dist/deb/${{ github.event.inputs.formula }}_${{ steps.get-tag.outputs.TAG_NAME }}-1_amd64.deb
-          ASSET_NAME: ${{ github.event.inputs.formula }}-${{ steps.get-tag.outputs.TAG_NAME }}.deb
+          FILE: dist/deb/${{ github.event.inputs.formula }}_${{ steps.get-tag.outputs.TAG_NAME }}.${{ steps.get-sha.outputs.SHA_SHORT }}-1_amd64.deb
+          ASSET_NAME: ${{ github.event.inputs.formula }}-${{ steps.get-tag.outputs.TAG_NAME }}.${{ steps.get-sha.outputs.SHA_SHORT }}.deb
           TAG_NAME: ${{ steps.get-tag.outputs.TAG_NAME }}
           REPO_NAME: ${{ github.repository }}
           
