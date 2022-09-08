@@ -48,6 +48,7 @@ pack_macos() {
 #  then
     import_certificate
     npx oclif pack:macos
+    cd dist/macos
     ls
     # notarize_and_staple
 #  else
