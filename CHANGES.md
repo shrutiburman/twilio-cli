@@ -1,3 +1,20 @@
+### [4.1.1](https://github.com/shrutiburman/twilio-cli/compare/4.1.0...4.1.1) (2022-09-08)
+
+
+### ⚠ BREAKING CHANGES
+
+* add node engine support from 14.x+
+
+### Library - Fixes
+
+* add node engine support from 14.x+ ([6de712f](https://github.com/shrutiburman/twilio-cli/commit/6de712f071a0cfe81fead89527fb62226b504798))
+
+
+### Library - Chores
+
+* fix workflow for duplicate release ([#456](https://github.com/shrutiburman/twilio-cli/issues/456)) ([8bf9188](https://github.com/shrutiburman/twilio-cli/commit/8bf9188b99d5af09dc9e2ed3dc701ad1ddec0b00))
+* release test ([b492758](https://github.com/shrutiburman/twilio-cli/commit/b4927585339fe559a78b0bdc499a07a531fdf04d))
+
 ## [4.3.0](https://github.com/shrutiburman/twilio-cli/compare/4.2.1...4.3.0) (2022-09-07)
 
 
