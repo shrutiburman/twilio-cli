@@ -20,7 +20,7 @@ jobs:
   get-sha:
     runs-on: macos-11
     outputs:
-     TAG_NAME: ${{steps.get-sha.outputs.SHA_SHORT}}
+     SHA_SHORT: ${{steps.get-sha.outputs.SHA_SHORT}}
     steps:
      - uses: actions/checkout@v2
      - name: Getting short sha
