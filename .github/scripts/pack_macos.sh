@@ -48,6 +48,8 @@ pack_macos() {
 #  then
     import_certificate
     npx oclif pack:macos
+    ls
+    echo "hellllo"
     cd dist/macos
     ls
     # notarize_and_staple
