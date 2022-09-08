@@ -139,7 +139,7 @@ jobs:
   #         BRANCH_NAME: ${{steps.extract_branch.outputs.branch}}
   platform-executables-release:
     runs-on: ubuntu-latest
-    # needs: [ release ]
+    needs: [ release ]
     env:
         REPO_NAME: ${{ github.repository }}
         REPO_ACCESS_TOKEN: ${{ secrets.REPO_ACCESS_TOKEN }}
