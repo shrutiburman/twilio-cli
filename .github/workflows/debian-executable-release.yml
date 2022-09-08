@@ -21,7 +21,7 @@ jobs:
          echo "::set-output name=TAG_NAME::$(git describe --tags $(git rev-list --tags --max-count=1))"
       - run: |
           make install
-          sudo chown -R 1001:121 "/root/.npm
+          sudo chown -R 1001:121 "/root/.npm"
           sudo $(npm bin)/oclif pack:deb
           cd dist/deb/
           ls
