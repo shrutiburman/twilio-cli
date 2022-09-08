@@ -20,6 +20,9 @@ jobs:
           make install
           npm install -g @oclif/dev-cli
           oclif-dev pack --targets=linux-x64
+          ls
+          cd dist/
+          ls
 
       - name: build rpm
         uses: ./.github/actions/build-rpm
