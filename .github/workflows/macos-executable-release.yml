@@ -18,8 +18,8 @@ jobs:
        run: |
         git fetch --prune --unshallow
         echo "::set-output name=TAG_NAME::$(git describe --tags $(git rev-list --tags --max-count=1))"
-     - name: Getting last sha
      - uses: actions/checkout@v2
+     - name: Getting last sha
        id: get-sha
        run: echo "::set-output name=SHA_SHORT::$(git rev-parse --short HEAD)"
   pack-macos:
