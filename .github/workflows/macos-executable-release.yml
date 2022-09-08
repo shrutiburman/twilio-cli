@@ -10,6 +10,7 @@ jobs:
     runs-on: macos-11
     outputs:
      TAG_NAME: ${{steps.get-tag.outputs.TAG_NAME}}
+     SHA_SHORT: ${{ steps.get-sha.outputs.SHA_SHORT }}
     steps:
      - uses: actions/checkout@v2
      - name: Getting latest tag
@@ -17,13 +18,14 @@ jobs:
        run: |
         git fetch --prune --unshallow
         echo "::set-output name=TAG_NAME::$(git describe --tags $(git rev-list --tags --max-count=1))"
+     - name: Getting last sha
+     - uses: actions/checkout@v2
+       id: get-sha
+       run: echo "::set-output name=SHA_SHORT::$(git rev-parse --short HEAD)"
   pack-macos:
     needs: [get-tag]
     runs-on: macos-11
     steps:
-    - name: Getting last sha
-      id: get-sha
-      run: echo "::set-output name=SHA_SHORT::$(git rev-parse --short HEAD)"
     - uses: actions/checkout@v2
     - run: |
         source .github/scripts/pack_macos.sh
@@ -33,17 +35,16 @@ jobs:
         APPLE_ID: ${{ secrets.APPLE_ID}}
         APPLE_ID_APP_PASSWORD: ${{ secrets.APPLE_ID_APP_PASSWORD}}
         APPLE_TEAM_ID: ${{ secrets.APPLE_TEAM_ID}}
-        FILE_PATH: dist/macos/${{ github.event.inputs.formula }}-v${{ needs.get-tag.outputs.TAG_NAME }}-${{ steps.get-sha.outputs.SHA_SHORT }}.pkg
+        FILE_PATH: dist/macos/${{ github.event.inputs.formula }}-v${{ needs.get-tag.outputs.TAG_NAME }}-${{ needs.get-tag.outputs.SHA_SHORT }}.pkg
         REPOSITORY_OWNER: ${{ github.repository_owner }}
     - name: Upload binaries to release
       if: always()
       run: |
-        ls
         node .github/scripts/update-platform-executables.js
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        FILE: dist/macos/${{ github.event.inputs.formula }}-v${{ needs.get-tag.outputs.TAG_NAME }}-${{ steps.get-sha.outputs.SHA_SHORT }}.pkg
-        ASSET_NAME: ${{ github.event.inputs.formula }}-${{ needs.get-tag.outputs.TAG_NAME }}-${{ steps.get-sha.outputs.SHA_SHORT }}.pkg
+        FILE: dist/macos/${{ github.event.inputs.formula }}-v${{ needs.get-tag.outputs.TAG_NAME }}-${{ needs.get-tag.outputs.SHA_SHORT }}.pkg
+        ASSET_NAME: ${{ github.event.inputs.formula }}-${{ needs.get-tag.outputs.TAG_NAME }}-${{ needs.get-tag.outputs.SHA_SHORT }}.pkg
         TAG_NAME: ${{ needs.get-tag.outputs.TAG_NAME }}
         REPO_NAME: ${{ github.repository }}
 
