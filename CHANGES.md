@@ -1,3 +1,18 @@
+### [4.1.2](https://github.com/shrutiburman/twilio-cli/compare/4.1.1...4.1.2) (2022-09-08)
+
+
+### Library - Chores
+
+* eod test with release ([3a64efc](https://github.com/shrutiburman/twilio-cli/commit/3a64efc606a6ee9e0c28d7e9f9ab55fc7f110107))
+* improve macos ([d53d1a7](https://github.com/shrutiburman/twilio-cli/commit/d53d1a75c19878490912991a0748da7e5a754c77))
+* test deb with oclif-dev ([1e60a31](https://github.com/shrutiburman/twilio-cli/commit/1e60a3105bd2881d873ebe440db2b88852e4c94b))
+
+
+### Library - Fixes
+
+* fixing macos and win ([e212d86](https://github.com/shrutiburman/twilio-cli/commit/e212d86898be8a114424d07d4ade3132858d7aba))
+* needs release ([bafb544](https://github.com/shrutiburman/twilio-cli/commit/bafb54407f8cbf0814205e214700772ab148f8e4))
+
 ### [4.1.1](https://github.com/shrutiburman/twilio-cli/compare/4.1.0...4.1.1) (2022-09-08)
 
 
