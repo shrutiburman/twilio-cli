@@ -11,6 +11,9 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
+      - name: Getting last sha
+        id: get-sha
+        run: echo "::set-output name=SHA_SHORT::$(git rev-parse --short HEAD)"
       - name: Getting latest tag
         id: get-tag
         run: |
@@ -18,7 +21,12 @@ jobs:
          echo "::set-output name=TAG_NAME::$(git describe --tags $(git rev-list --tags --max-count=1))"
       - run: |
           make install
-          sudo $(npm bin)/oclif-dev pack:deb
+          sudo chown -R 1001:121 "/root/.npm"
+          sudo $(npm bin)/oclif pack:deb
+          cd dist/deb/
+          ls
+          sudo mv ${{ github.event.inputs.formula }}_${{ steps.get-tag.outputs.TAG_NAME }}.${{ steps.get-sha.outputs.SHA_SHORT }}-1_amd64.deb ${{ github.event.inputs.formula }}_${{ steps.get-tag.outputs.TAG_NAME }}-1_amd64.deb
+          ls
       - name: Upload binaries to release
         run: node .github/scripts/update-platform-executables.js
         env:
@@ -28,20 +36,20 @@ jobs:
           TAG_NAME: ${{ steps.get-tag.outputs.TAG_NAME }}
           REPO_NAME: ${{ github.repository }}
           
-  notify-complete-fail:
-    if: ${{ failure() || cancelled() }}
-    needs: [ debian-executable-release ]
-    name: Notify Release Failed
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v2
-      - name: Slack Notification
-        uses: rtCamp/action-slack-notify@v2
-        env:
-          SLACK_WEBHOOK: ${{ secrets.ALERT_SLACK_WEB_HOOK }}
-          SLACK_COLOR: "#ff3333"
-          SLACK_USERNAME: CLI Release Bot
-          SLACK_ICON_EMOJI: ":ship:"
-          SLACK_TITLE: "Twilio Cli"
-          SLACK_MESSAGE: 'Debian Executable Release Failed'
-          MSG_MINIMAL: actions url
+  # notify-complete-fail:
+  #   if: ${{ failure() || cancelled() }}
+  #   needs: [ debian-executable-release ]
+  #   name: Notify Release Failed
+  #   runs-on: ubuntu-latest
+  #   steps:
+  #     - uses: actions/checkout@v2
+  #     - name: Slack Notification
+  #       uses: rtCamp/action-slack-notify@v2
+  #       env:
+  #         SLACK_WEBHOOK: ${{ secrets.ALERT_SLACK_WEB_HOOK }}
+  #         SLACK_COLOR: "#ff3333"
+  #         SLACK_USERNAME: CLI Release Bot
+  #         SLACK_ICON_EMOJI: ":ship:"
+  #         SLACK_TITLE: "Twilio Cli"
+  #         SLACK_MESSAGE: 'Debian Executable Release Failed'
+  #         MSG_MINIMAL: actions url

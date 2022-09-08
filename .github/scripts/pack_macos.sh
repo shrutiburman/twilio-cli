@@ -50,7 +50,7 @@ pack_macos() {
     npx oclif-dev pack:macos
     notarize_and_staple
 #  else
-#   npx oclif-dev pack:macos
+#   npx oclif pack:macos
  # fi
 }
 

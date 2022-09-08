@@ -1,3 +1,67 @@
+## [4.3.0](https://github.com/shrutiburman/twilio-cli/compare/4.2.1...4.3.0) (2022-09-07)
+
+
+### Library - Features
+
+* replace to oclif-dev to check ([fb1c52c](https://github.com/shrutiburman/twilio-cli/commit/fb1c52c8273f0d442ea8ab679609a27b53eea705))
+
+### [4.2.1](https://github.com/shrutiburman/twilio-cli/compare/4.2.0...4.2.1) (2022-09-07)
+
+
+### Library - Chores
+
+* dummy commit to pass commit-analyzer ([66e382c](https://github.com/shrutiburman/twilio-cli/commit/66e382c78d021422e77ca5c068075d84348e9fc9))
+
+## [4.2.0](https://github.com/shrutiburman/twilio-cli/compare/4.1.3...4.2.0) (2022-09-07)
+
+
+### Library - Features
+
+* removed condition for invoking, non-main branch ([f4dce4a](https://github.com/shrutiburman/twilio-cli/commit/f4dce4a8230c62ed684e9e09e76754fb09e56249))
+
+### [4.1.3](https://github.com/shrutiburman/twilio-cli/compare/4.1.2...4.1.3) (2022-09-07)
+
+
+### Library - Chores
+
+* next release with executables ([d9fcc07](https://github.com/shrutiburman/twilio-cli/commit/d9fcc075b731c403344ba83d1692ccc27f7a8457))
+
+
+### Library - Fixes
+
+* Updated all oclif-dev to oclif as dev-cli is archieved now. BREAKING CHANGE ([7506e92](https://github.com/shrutiburman/twilio-cli/commit/7506e9279d486454c13f70895221c4085ef35908))
+
+### [4.1.2](https://github.com/shrutiburman/twilio-cli/compare/4.1.1...4.1.2) (2022-09-07)
+
+
+### Library - Chores
+
+* improve scoop workflow now we are invoking scoop homebrew and oclif BREAKING CHANGE trial ([3eec969](https://github.com/shrutiburman/twilio-cli/commit/3eec96916db6d696ee565d05a73178c71ec9f996))
+* update oclif-dev command to oclif ([5cbf52f](https://github.com/shrutiburman/twilio-cli/commit/5cbf52fe840aba18c5c077fb007a7d2960d1c1b7))
+
+### [4.1.1](https://github.com/shrutiburman/twilio-cli/compare/4.1.0...4.1.1) (2022-09-07)
+
+
+### ⚠ BREAKING CHANGES
+
+* add node engine support from 14.x+
+
+### Library - Fixes
+
+* add node engine support from 14.x+ ([6de712f](https://github.com/shrutiburman/twilio-cli/commit/6de712f071a0cfe81fead89527fb62226b504798))
+* add space topic separator ([#459](https://github.com/shrutiburman/twilio-cli/issues/459)) ([9abc73c](https://github.com/shrutiburman/twilio-cli/commit/9abc73c11273c992b7fbdc37fb9c1457ac20bdcb))
+* remove cli-ux dependency ([#451](https://github.com/shrutiburman/twilio-cli/issues/451)) ([95f945e](https://github.com/shrutiburman/twilio-cli/commit/95f945e88afd36d490d63fd8043dfc2a0c9d7953))
+
+
+### Library - Chores
+
+* fix dependencies  ([#461](https://github.com/shrutiburman/twilio-cli/issues/461)) ([4f0edf4](https://github.com/shrutiburman/twilio-cli/commit/4f0edf49bbc71697b7190065bafcad0963f990d7))
+* fix workflow for duplicate release ([#456](https://github.com/shrutiburman/twilio-cli/issues/456)) ([8bf9188](https://github.com/shrutiburman/twilio-cli/commit/8bf9188b99d5af09dc9e2ed3dc701ad1ddec0b00))
+* fix workflow for duplicate release ([#456](https://github.com/shrutiburman/twilio-cli/issues/456)) ([#458](https://github.com/shrutiburman/twilio-cli/issues/458)) ([bebb26c](https://github.com/shrutiburman/twilio-cli/commit/bebb26c201a21b7dc03fef4d520a3d72f48c4edc))
+* fix workflow for duplicate release ([#456](https://github.com/shrutiburman/twilio-cli/issues/456)) ([#460](https://github.com/shrutiburman/twilio-cli/issues/460)) ([3f65ba8](https://github.com/shrutiburman/twilio-cli/commit/3f65ba861aa68b56e129649b063e78a0fd4bcde5))
+* refactor plugin-help implementation ([#455](https://github.com/shrutiburman/twilio-cli/issues/455)) ([b5d019e](https://github.com/shrutiburman/twilio-cli/commit/b5d019ef0e772664ca0d6995ec741620640bf2bb))
+* removed oclif old dependencies and dev-cli dependency ([#445](https://github.com/shrutiburman/twilio-cli/issues/445)) ([7c3405c](https://github.com/shrutiburman/twilio-cli/commit/7c3405c59ca49920ade23ab25517486501f8ed77))
+
 ## [4.1.0](https://github.com/twilio/twilio-cli/compare/4.0.1...4.1.0) (2022-08-25)
 
 
