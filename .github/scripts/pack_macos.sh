@@ -50,8 +50,6 @@ pack_macos() {
     npx oclif pack:macos
     ls
     echo "hellllo"
-    cd dist/macos
-    ls
     # notarize_and_staple
 #  else
 #   npx oclif pack:macos
