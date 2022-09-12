@@ -26,7 +26,7 @@ jobs:
         include:
           - os: macos-latest
             asset_name: twilio-v${{ github.event.inputs.tag-name }}
-            command_name: npx oclif pack --xz
+            command_name: npx oclif pack tarballs --xz
             publish: homebrew
     steps:
       - uses: actions/checkout@v2
@@ -37,6 +37,10 @@ jobs:
             brew install makensis
           fi
           ${{ matrix.command_name }}
+          ls
+          cd /dist
+          echo "Inside dist ---->"
+          ls
       - name: Configure AWS credentials from Test account
         uses: aws-actions/configure-aws-credentials@v1
         with:
@@ -50,10 +54,6 @@ jobs:
         run: |
           npx oclif upload tarballs --xz
           brew install coreutils
-          ls
-          cd /dist
-          echo "Inside dist ---->"
-          ls
           if [ "${{github.event.inputs.formula}}" == "twiliorc" ]; then
             echo "::set-output name=sha256::$(sha256sum dist/channels/rc/${{ matrix.asset_name }}/${{ matrix.asset_name }}.tar.gz | awk '{print $1}')"
           elif [ "${{github.event.inputs.formula}}" == "twiliodraft" ]; then
