@@ -1,3 +1,10 @@
+### [4.3.3](https://github.com/shrutiburman/twilio-cli/compare/4.3.2...4.3.3) (2022-09-12)
+
+
+### Library - Fixes
+
+* change sha directory ([b23d48c](https://github.com/shrutiburman/twilio-cli/commit/b23d48cfa5a4e8e82c9356731eb294b5cf349240))
+
 ### [4.3.2](https://github.com/shrutiburman/twilio-cli/compare/4.3.1...4.3.2) (2022-09-12)
 
 
