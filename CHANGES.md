@@ -1,3 +1,11 @@
+## [4.4.0](https://github.com/shrutiburman/twilio-cli/compare/4.3.3...4.4.0) (2022-09-12)
+
+
+### Library - Features
+
+* trying oclif-dev now ([e0a57d9](https://github.com/shrutiburman/twilio-cli/commit/e0a57d9bf7b43f7b89eddff33e4a30ade3036a39))
+* trying oclif-dev now ([d1702fb](https://github.com/shrutiburman/twilio-cli/commit/d1702fb1632c500351257e607aeb88498b11e5ac))
+
 ### [4.3.3](https://github.com/shrutiburman/twilio-cli/compare/4.3.2...4.3.3) (2022-09-12)
 
 
