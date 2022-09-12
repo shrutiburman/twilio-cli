@@ -1,3 +1,11 @@
+### [4.1.3](https://github.com/shrutiburman/twilio-cli/compare/4.1.2...4.1.3) (2022-09-12)
+
+
+### Library - Chores
+
+* test all releases ([a3c98e9](https://github.com/shrutiburman/twilio-cli/commit/a3c98e96334238654695520ab9387d40a402bbbe))
+* test only apt and rpm ([e335539](https://github.com/shrutiburman/twilio-cli/commit/e33553963b4b65ed3b7fc0d65d24da44d646e179))
+
 ### [4.1.2](https://github.com/shrutiburman/twilio-cli/compare/4.1.1...4.1.2) (2022-09-08)
 
 
