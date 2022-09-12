@@ -48,8 +48,12 @@ jobs:
         id: sha256
         if: ${{matrix.publish == 'homebrew'}}
         run: |
-          npx oclif upload tarballs
+          npx oclif upload tarballs --xz
           brew install coreutils
+          ls
+          cd /dist
+          echo "Inside dist ---->"
+          ls
           if [ "${{github.event.inputs.formula}}" == "twiliorc" ]; then
             echo "::set-output name=sha256::$(sha256sum dist/channels/rc/${{ matrix.asset_name }}/${{ matrix.asset_name }}.tar.gz | awk '{print $1}')"
           elif [ "${{github.event.inputs.formula}}" == "twiliodraft" ]; then
@@ -57,6 +61,7 @@ jobs:
           else
             echo "::set-output name=sha256::$(sha256sum dist/${{ matrix.asset_name }}/${{ matrix.asset_name }}.tar.gz | awk '{print $1}')"
           fi
+          
   home-brew-release:
     name: Trigger homebrew release workflow
     runs-on: ubuntu-latest
