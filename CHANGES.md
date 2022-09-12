@@ -1,3 +1,11 @@
+### [4.3.2](https://github.com/shrutiburman/twilio-cli/compare/4.3.1...4.3.2) (2022-09-12)
+
+
+### Library - Fixes
+
+* dont change the filename yet, we'll see what happens now ([fa59a11](https://github.com/shrutiburman/twilio-cli/commit/fa59a1102d7be22601116c187bdafa8cd41cf203))
+* dont change the filename yet, we'll see what happens now ([aef02c6](https://github.com/shrutiburman/twilio-cli/commit/aef02c61a303f5a38e806b249788ee8bcf1ab436))
+
 ### [4.3.1](https://github.com/shrutiburman/twilio-cli/compare/4.3.0...4.3.1) (2022-09-12)
 
 
