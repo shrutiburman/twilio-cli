@@ -1,3 +1,10 @@
+### [4.2.3](https://github.com/shrutiburman/twilio-cli/compare/4.2.2...4.2.3) (2022-09-12)
+
+
+### Library - Fixes
+
+* try pack tarballs ([5078ef0](https://github.com/shrutiburman/twilio-cli/commit/5078ef02cfb761870e6aeed2c4babba181ea83c7))
+
 ### [4.2.2](https://github.com/shrutiburman/twilio-cli/compare/4.2.1...4.2.2) (2022-09-12)
 
 
