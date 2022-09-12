@@ -44,15 +44,9 @@ jobs:
           cd ./dist
           echo "Inside dist ---->"
           ls
-          if [ "${{github.event.inputs.formula}}" == "twiliorc" ]; then
-             sudo mv dist/channels/rc/${{ matrix.asset_name }}-${{ steps.get-sha.outputs.SHA_SHORT }}.tar.gz dist/channels/rc/${{ matrix.asset_name }}.tar.gz 
-          elif [ "${{github.event.inputs.formula}}" == "twiliodraft" ]; then
-             sudo mv dist/channels/draft/${{ matrix.asset_name }}-${{ steps.get-sha.outputs.SHA_SHORT }}.tar.gz dist/channels/draft/${{ matrix.asset_name }}.tar.gz 
-          else
-            sudo mv dist/${{ matrix.asset_name }}-${{ steps.get-sha.outputs.SHA_SHORT }}.tar.gz dist/${{ matrix.asset_name }}.tar.gz 
-          fi
+          for file in *; do mv "${file}" "${file/-${{ steps.get-sha.outputs.SHA_SHORT }}/}"; done
+          ls
 
-          
       - name: Configure AWS credentials from Test account
         uses: aws-actions/configure-aws-credentials@v1
         with:
