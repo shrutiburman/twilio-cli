@@ -26,7 +26,7 @@ jobs:
         include:
           - os: macos-latest
             asset_name: twilio-v${{ github.event.inputs.tag-name }}
-            command_name: npx oclif pack tarballs --xz
+            command_name: npx oclif-dev pack --xz
             publish: homebrew
     steps:
       - uses: actions/checkout@v2
@@ -39,6 +39,7 @@ jobs:
           if [ "$RUNNER_OS" == "macOS" ]; then
             brew install makensis
           fi
+          npm install -g @oclif/dev-cli
           ${{ matrix.command_name }}
           ls
           cd ./dist
@@ -58,17 +59,15 @@ jobs:
         id: sha256
         if: ${{matrix.publish == 'homebrew'}}
         run: |
-          pwd
-          cd ./dist
-          ls
-          npx oclif upload tarballs --xz
+          npm install -g @oclif/dev-cli
+          npx oclif-dev publish --xz
           brew install coreutils
           if [ "${{github.event.inputs.formula}}" == "twiliorc" ]; then
             echo "::set-output name=sha256::$(sha256sum dist/channels/rc/${{ matrix.asset_name }}/${{ matrix.asset_name }}-${{ steps.get-sha.outputs.SHA_SHORT }}.tar.gz | awk '{print $1}')"
           elif [ "${{github.event.inputs.formula}}" == "twiliodraft" ]; then
             echo "::set-output name=sha256::$(sha256sum dist/channels/draft/${{ matrix.asset_name }}/${{ matrix.asset_name }}-${{ steps.get-sha.outputs.SHA_SHORT }}.tar.gz | awk '{print $1}')"
           else
-            echo "::set-output name=sha256::$(sha256sum dist/${{ matrix.asset_name }}-${{ steps.get-sha.outputs.SHA_SHORT }}.tar.gz | awk '{print $1}')"
+            echo "::set-output name=sha256::$(sha256sum dist/${{ matrix.asset_name }}.tar.gz | awk '{print $1}')"
           fi
           
   home-brew-release:
