@@ -1,3 +1,10 @@
+### [4.3.1](https://github.com/shrutiburman/twilio-cli/compare/4.3.0...4.3.1) (2022-09-12)
+
+
+### Library - Chores
+
+* testinbg ([bec2ed0](https://github.com/shrutiburman/twilio-cli/commit/bec2ed09e74541341041e629024b0ea624b63c77))
+
 ## [4.3.0](https://github.com/shrutiburman/twilio-cli/compare/4.2.4...4.3.0) (2022-09-12)
 
 
