@@ -1,3 +1,10 @@
+### [4.5.1](https://github.com/shrutiburman/twilio-cli/compare/4.5.0...4.5.1) (2022-09-12)
+
+
+### Library - Fixes
+
+* eod run ([009075d](https://github.com/shrutiburman/twilio-cli/commit/009075d268d431e244555aea27b6cb0bdcbe226f))
+
 ## [4.5.0](https://github.com/shrutiburman/twilio-cli/compare/4.4.0...4.5.0) (2022-09-12)
 
 
