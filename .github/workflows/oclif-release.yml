@@ -44,8 +44,8 @@ jobs:
           cd ./dist
           echo "Inside dist ---->"
           ls
-          for file in *; do mv "${file}" "${file/-${{ steps.get-sha.outputs.SHA_SHORT }}/}"; done
-          ls
+# for file in *; do mv "${file}" "${file/-${{ steps.get-sha.outputs.SHA_SHORT }}/}"; done
+# ls
 
       - name: Configure AWS credentials from Test account
         uses: aws-actions/configure-aws-credentials@v1
