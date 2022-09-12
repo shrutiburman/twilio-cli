@@ -1,3 +1,10 @@
+### [4.2.2](https://github.com/shrutiburman/twilio-cli/compare/4.2.1...4.2.2) (2022-09-12)
+
+
+### Library - Fixes
+
+* trying homebrew ([f32ee70](https://github.com/shrutiburman/twilio-cli/commit/f32ee703be35dca577f7aa53a84c7553004d5e4c))
+
 ### [4.2.1](https://github.com/shrutiburman/twilio-cli/compare/4.2.0...4.2.1) (2022-09-12)
 
 
