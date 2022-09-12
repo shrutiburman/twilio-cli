@@ -1,3 +1,10 @@
+## [4.2.0](https://github.com/shrutiburman/twilio-cli/compare/4.1.3...4.2.0) (2022-09-12)
+
+
+### Library - Features
+
+* this is a BREAKING CHANGE:here ([2e4cae4](https://github.com/shrutiburman/twilio-cli/commit/2e4cae4afd406c0683b4b0ac1688b2f7c0ac47dd))
+
 ### [4.1.3](https://github.com/shrutiburman/twilio-cli/compare/4.1.2...4.1.3) (2022-09-12)
 
 
