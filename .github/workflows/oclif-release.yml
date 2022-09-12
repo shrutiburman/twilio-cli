@@ -30,6 +30,9 @@ jobs:
             publish: homebrew
     steps:
       - uses: actions/checkout@v2
+      - name: Getting last sha
+        id: get-sha
+        run: echo "::set-output name=SHA_SHORT::$(git rev-parse --short HEAD)"
       - run: |
           make install
           npm list @twilio/cli-core
@@ -38,9 +41,18 @@ jobs:
           fi
           ${{ matrix.command_name }}
           ls
-          cd /dist
+          cd ./dist
           echo "Inside dist ---->"
           ls
+          if [ "${{github.event.inputs.formula}}" == "twiliorc" ]; then
+             sudo mv dist/channels/rc/${{ matrix.asset_name }}-${{ steps.get-sha.outputs.SHA_SHORT }}.tar.gz dist/channels/rc/${{ matrix.asset_name }}.tar.gz 
+          elif [ "${{github.event.inputs.formula}}" == "twiliodraft" ]; then
+             sudo mv dist/channels/draft/${{ matrix.asset_name }}-${{ steps.get-sha.outputs.SHA_SHORT }}.tar.gz dist/channels/draft/${{ matrix.asset_name }}.tar.gz 
+          else
+            sudo mv dist/${{ matrix.asset_name }}-${{ steps.get-sha.outputs.SHA_SHORT }}.tar.gz dist/${{ matrix.asset_name }}.tar.gz 
+          fi
+
+          
       - name: Configure AWS credentials from Test account
         uses: aws-actions/configure-aws-credentials@v1
         with:
