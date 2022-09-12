@@ -1,3 +1,10 @@
+### [4.2.1](https://github.com/shrutiburman/twilio-cli/compare/4.2.0...4.2.1) (2022-09-12)
+
+
+### Library - Fixes
+
+* upload tarballs cmd ([7d309a7](https://github.com/shrutiburman/twilio-cli/commit/7d309a7b3504be89a4120515f66dfacfd65c83a0))
+
 ## [4.2.0](https://github.com/shrutiburman/twilio-cli/compare/4.1.3...4.2.0) (2022-09-12)
 
 
