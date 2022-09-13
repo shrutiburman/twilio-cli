@@ -55,9 +55,6 @@ jobs:
         run: |
           make clean
           make install
-          cat package.json
-          cd node_modules/aws-sdk/clients
-          ls -ltra
           oclif-dev publish
           brew install coreutils
           if [ "${{github.event.inputs.formula}}" == "twiliorc" ]; then
