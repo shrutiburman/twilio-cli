@@ -54,12 +54,12 @@ jobs:
         id: sha256
         if: ${{matrix.publish == 'homebrew'}}
         run: |
-          pwd
-          ls -ltra
+          make clean
+          make install
+          npm install @oclif/dev-cli --save-dev
           cat package.json
-          cd node_modules
+          cd node_modules/aws-sdk/clients
           ls -ltra
-          npm install -g @oclif/dev-cli
           oclif-dev publish
           brew install coreutils
           if [ "${{github.event.inputs.formula}}" == "twiliorc" ]; then
