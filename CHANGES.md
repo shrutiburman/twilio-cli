@@ -1,3 +1,10 @@
+### [4.5.4](https://github.com/shrutiburman/twilio-cli/compare/4.5.3...4.5.4) (2022-09-13)
+
+
+### Library - Fixes
+
+* testing all workflows 1 ([6b4c1a0](https://github.com/shrutiburman/twilio-cli/commit/6b4c1a0d8ce28d702280a9d1d94219cc61c9be33))
+
 ### [4.5.3](https://github.com/shrutiburman/twilio-cli/compare/4.5.2...4.5.3) (2022-09-13)
 
 
