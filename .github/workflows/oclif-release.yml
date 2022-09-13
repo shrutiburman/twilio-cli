@@ -41,7 +41,7 @@ jobs:
           fi
           npm install -g @oclif/dev-cli
           npm install aws-sdk --save-dev
-          
+          ${{ matrix.command_name }}
           ls
           cd ./dist
           echo "Inside dist ---->"
