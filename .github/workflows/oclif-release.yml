@@ -30,9 +30,6 @@ jobs:
             publish: homebrew
     steps:
       - uses: actions/checkout@v2
-      - name: Getting last sha
-        id: get-sha
-        run: echo "::set-output name=SHA_SHORT::$(git rev-parse --short HEAD)"
       - run: |
           make install
           npm list @twilio/cli-core
@@ -58,11 +55,7 @@ jobs:
         if: ${{matrix.publish == 'homebrew'}}
         run: |
           pwd
-          npm cache clear & npm install
           npm install -g @oclif/dev-cli
-          npm install aws-sdk --save-dev
-          npm install @aws-sdk/client-s3 --save-dev
-
           npm list @aws-sdk/client-s3
           pwd
           oclif-dev publish
