@@ -79,7 +79,8 @@
     "tmp": "^0.2.1",
     "ts-node": "^10.9.1",
     "tslib": "^2.3.1",
-    "typescript": "^4.4.3"
+    "typescript": "^4.4.3",
+    "@oclif/dev-cli": "^1.22.2"
   },
   "optionalDependencies": {
     "ngrok": "^3.2.7"

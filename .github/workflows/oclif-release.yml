@@ -36,7 +36,6 @@ jobs:
           if [ "$RUNNER_OS" == "macOS" ]; then
             brew install makensis
           fi
-          npm install -g @oclif/dev-cli
           ${{ matrix.command_name }}
           ls
           cd ./dist
@@ -56,7 +55,6 @@ jobs:
         run: |
           make clean
           make install
-          npm install @oclif/dev-cli --save-dev
           cat package.json
           cd node_modules/aws-sdk/clients
           ls -ltra
