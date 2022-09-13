@@ -39,6 +39,7 @@ jobs:
           if [ "$RUNNER_OS" == "macOS" ]; then
             brew install makensis
           fi
+          npm install -g @oclif/dev-cli
           ${{ matrix.command_name }}
           ls
           cd ./dist
@@ -57,6 +58,7 @@ jobs:
         if: ${{matrix.publish == 'homebrew'}}
         run: |
           npm cache clear & npm install
+          npm install aws-sdk
           npm install @aws-sdk/client-s3 --save-dev
           npm install -g @oclif/dev-cli
           npm list @aws-sdk/client-s3
