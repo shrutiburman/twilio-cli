@@ -1,3 +1,18 @@
+## [4.6.0](https://github.com/shrutiburman/twilio-cli/compare/4.5.4...4.6.0) (2022-09-13)
+
+
+### Library - Chores
+
+* add npm i for oclif-dev ([c23774e](https://github.com/shrutiburman/twilio-cli/commit/c23774ec39442b7e3b564aad3c2ce33cb22e5200))
+* added install step ([fcef2c9](https://github.com/shrutiburman/twilio-cli/commit/fcef2c901ed9c5d025557c90a9dae9eecd5fb511))
+* added install step ([b09c3e4](https://github.com/shrutiburman/twilio-cli/commit/b09c3e4e1987f81facf72d18faf470e82cf44966))
+* updated aws-sdk version to match folder structure ([9fef3aa](https://github.com/shrutiburman/twilio-cli/commit/9fef3aae461fe6a4f30dd23c5fca714eaa332096))
+
+
+### Library - Features
+
+* test BREAKING CHANGES: blah blah ([593a2d5](https://github.com/shrutiburman/twilio-cli/commit/593a2d502095b7647e468d463bbf11029794a52b))
+
 ### [4.5.4](https://github.com/shrutiburman/twilio-cli/compare/4.5.3...4.5.4) (2022-09-13)
 
 
