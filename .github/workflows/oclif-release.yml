@@ -56,7 +56,11 @@ jobs:
         run: |
           pwd
           ls -ltra
-          npx oclif-dev publish
+          cat package.json
+          cd node_modules
+          ls -ltra
+          npm install -g @oclif/dev-cli
+          oclif-dev publish
           brew install coreutils
           if [ "${{github.event.inputs.formula}}" == "twiliorc" ]; then
             echo "::set-output name=sha256::$(sha256sum dist/channels/rc/${{ matrix.asset_name }}/${{ matrix.asset_name }}.tar.gz | awk '{print $1}')"
