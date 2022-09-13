@@ -39,8 +39,6 @@ jobs:
           if [ "$RUNNER_OS" == "macOS" ]; then
             brew install makensis
           fi
-          npm install -g @oclif/dev-cli
-          npm install aws-sdk --save-dev
           ${{ matrix.command_name }}
           ls
           cd ./dist
@@ -59,8 +57,9 @@ jobs:
         if: ${{matrix.publish == 'homebrew'}}
         run: |
           npm cache clear & npm install
+          npm install @aws-sdk/client-s3 --save-dev
           npm install -g @oclif/dev-cli
-          npm install aws-sdk --save-dev
+          npm list @aws-sdk/client-s3
           oclif-dev publish
           brew install coreutils
           if [ "${{github.event.inputs.formula}}" == "twiliorc" ]; then
