@@ -1,3 +1,14 @@
+## [6.0.0](https://github.com/shrutiburman/twilio-cli/compare/5.0.0...6.0.0) (2022-10-17)
+
+
+### ⚠ BREAKING CHANGES
+
+* to trigger new version
+
+### Library - Features
+
+* Adding description to mark the installed app ([c812152](https://github.com/shrutiburman/twilio-cli/commit/c8121529ba4b859e2a0d7092cbb49f8e942aff63))
+
 ## [5.0.0](https://github.com/shrutiburman/twilio-cli/compare/4.1.0...5.0.0) (2022-10-17)
 
 
