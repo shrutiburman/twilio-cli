@@ -1,3 +1,36 @@
+## [5.0.0](https://github.com/shrutiburman/twilio-cli/compare/4.1.0...5.0.0) (2022-10-17)
+
+
+### ⚠ BREAKING CHANGES
+
+* upgrade to oclif v2
+* add node engine support from 14.x+
+
+### Library - Fixes
+
+* add node engine support from 14.x+ ([6de712f](https://github.com/shrutiburman/twilio-cli/commit/6de712f071a0cfe81fead89527fb62226b504798))
+* specifying targets for oclif-dev pack ([#471](https://github.com/shrutiburman/twilio-cli/issues/471)) ([f0dfea5](https://github.com/shrutiburman/twilio-cli/commit/f0dfea5a88e61d26f03a6ffe3b4cd3b50f831969))
+* windows executable workflow ([ac8e2ed](https://github.com/shrutiburman/twilio-cli/commit/ac8e2eda4d18a2e19d699adba9e8a96a3b7f93ce))
+
+
+### Library - Features
+
+* macos tarballs ([30964ae](https://github.com/shrutiburman/twilio-cli/commit/30964ae77a3c9ddf10ac25ca33f8283bfd8fbc50))
+* oclif v2 migration ([#466](https://github.com/shrutiburman/twilio-cli/issues/466)) ([a9d57dc](https://github.com/shrutiburman/twilio-cli/commit/a9d57dc8698b2f3eb0457486c2d7d2f5f7d785de))
+
+
+### Library - Chores
+
+* changes to enable actions in forked repo ([6d07f7b](https://github.com/shrutiburman/twilio-cli/commit/6d07f7b84586b4d598120368cd5fe1bd37c58cd7))
+* fix workflow for duplicate release ([#456](https://github.com/shrutiburman/twilio-cli/issues/456)) ([8bf9188](https://github.com/shrutiburman/twilio-cli/commit/8bf9188b99d5af09dc9e2ed3dc701ad1ddec0b00))
+* macos workflow fix ([c34e52b](https://github.com/shrutiburman/twilio-cli/commit/c34e52ba4b1cafa25db485689313f5755d05c645))
+* macos workflow fix ([#469](https://github.com/shrutiburman/twilio-cli/issues/469)) ([a650621](https://github.com/shrutiburman/twilio-cli/commit/a650621dbb5091eb10b7cc2d3c2f5cf90fd1101a))
+* **release:** set `package.json` to 4.2.0 [skip ci] ([df00986](https://github.com/shrutiburman/twilio-cli/commit/df00986454d59f9c0bb9b22cc7b505dfa88e8b82)), closes [#456](https://github.com/shrutiburman/twilio-cli/issues/456)
+* **release:** set `package.json` to 5.0.0 [skip ci] ([81f3228](https://github.com/shrutiburman/twilio-cli/commit/81f3228e99ac10f39d403553637bb7ae53afe3e5)), closes [#466](https://github.com/shrutiburman/twilio-cli/issues/466)
+* **release:** set `package.json` to 5.1.0 [skip ci] ([5a240b3](https://github.com/shrutiburman/twilio-cli/commit/5a240b34de977a41b92a09d13524a439249bfeeb)), closes [#469](https://github.com/shrutiburman/twilio-cli/issues/469)
+* run acceptance test on macos x64 executable ([#472](https://github.com/shrutiburman/twilio-cli/issues/472)) ([12097b3](https://github.com/shrutiburman/twilio-cli/commit/12097b3b37fc4ed2e6ff6dec97f90d97f324d7a3))
+* testing macos ([fa9ca00](https://github.com/shrutiburman/twilio-cli/commit/fa9ca0019076f78b831c07b9664e2eb150c110d3))
+
 ## [5.1.0](https://github.com/twilio/twilio-cli/compare/5.0.0...5.1.0) (2022-10-06)
 
 
