@@ -1,3 +1,10 @@
+### [6.0.1](https://github.com/shrutiburman/twilio-cli/compare/6.0.0...6.0.1) (2022-10-18)
+
+
+### Library - Fixes
+
+* update the description to know its solved. ([b335462](https://github.com/shrutiburman/twilio-cli/commit/b335462267eb19576c3ba9dc65e79971aa3cd72d))
+
 ## [6.0.0](https://github.com/shrutiburman/twilio-cli/compare/5.0.0...6.0.0) (2022-10-17)
 
 
